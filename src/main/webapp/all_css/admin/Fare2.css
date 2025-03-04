@@ -1,0 +1,126 @@
+/* ===== General Styles ===== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f4f6f9;
+}
+
+/* ===== Dashboard Container ===== */
+.dashboard-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dee2e6;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* ===== Form Styling ===== */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease-in-out;
+    box-sizing: border-box; /* Fix overflow */
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    background: white;
+}
+
+/* Checkbox Container */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-container input {
+    transform: scale(1.1);
+}
+
+/* ===== Buttons Styling ===== */
+button[type="submit"],
+.view-rates-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-sizing: border-box; /* Fix overflow */
+}
+
+button[type="submit"] {
+    background: #28a745;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background: #218838;
+    transform: scale(1.03);
+}
+
+.view-rates-btn {
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.view-rates-btn:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .dashboard-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    button[type="submit"],
+    .view-rates-btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}

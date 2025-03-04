@@ -1,0 +1,103 @@
+/* ===== General Styles ===== */
+html, body {
+    height: 100%; /* Full page height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f4f6f9;
+}
+
+/* Ensure full height and flexbox layout */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Push content area to flex height */
+.main-content {
+    flex: 1;
+    padding-bottom: 20px; /* Ensures space above footer */
+}
+
+/* Page Heading */
+h2 {
+    font-size: 2.5rem;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Table Styling */
+.table {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6; /* Adds visible table borders */
+}
+
+.table th, .table td {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.table th {
+    background: #343a40;
+    color: #ffffff;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Status Badge */
+.badge {
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.badge.bg-success {
+    background-color: #28a745;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 10px;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    th {
+        display: none;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #007bff;
+    }
+}

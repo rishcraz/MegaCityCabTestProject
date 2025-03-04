@@ -1,0 +1,179 @@
+/* ===== General Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===== Authentication Container ===== */
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.megacity {
+    color: #007bff;
+}
+
+.city {
+    color: #ffc107;
+}
+
+.cab {
+    color: #28a745;
+}
+
+/* ===== Form Styles ===== */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.input-box input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.auth-btn {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.auth-btn:hover {
+    background: #0056b3;
+    transform: scale(1.02);
+}
+
+.auth-text {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.auth-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-text a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Social Login Options ===== */
+.login_option {
+    margin-top: 20px;
+}
+
+.option {
+    margin-bottom: 10px;
+}
+
+.google-btn, .apple-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.google-btn {
+    background: #db4437;
+}
+
+.apple-btn {
+    background: #333333;
+}
+
+.google-btn img, .apple-btn img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.google-btn:hover, .apple-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Error Message Styling ===== */
+.alert-danger {
+    background: #dc3545;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .auth-box {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .input-box input {
+        font-size: 0.9rem;
+    }
+
+    .auth-btn {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,126 @@
+/* ===== General Styles ===== */
+html, body {
+    height: 100%; /* Full page height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f4f6f9;
+}
+
+.main-content {
+    min-height: calc(100vh - 60px); /* Push footer to bottom */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px; /* Space for footer */
+}
+
+.container {
+    flex: 1;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+/* ===== Search Form Styling ===== */
+.search-form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-form .form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.search-form .btn-primary {
+    width: 100%;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* ===== Booking Details Table ===== */
+.booking-details table {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 2px solid #007bff;
+}
+
+.booking-details th, .booking-details td {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #007bff;
+}
+
+.booking-details th {
+    background: #14213D;
+    color: white;
+}
+
+.booking-details tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.booking-details tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* ===== Generate Bill Form ===== */
+.generate-bill-form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.generate-bill-form .form-control {
+    border-radius: 8px;
+}
+
+.generate-bill-form .btn-success {
+    width: 100%;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .booking-details table, .booking-details thead, .booking-details tbody, .booking-details th, .booking-details td, .booking-details tr {
+        display: block;
+    }
+
+    .booking-details tr {
+        margin-bottom: 10px;
+        border: 1px solid #007bff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .booking-details td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .booking-details td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+}

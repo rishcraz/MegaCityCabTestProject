@@ -1,0 +1,126 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Full Page Layout */
+body {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Header and Footer Containers */
+.header-container, .footer-container {
+    width: 100%;
+}
+
+/* Page Heading */
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+    color: #14213D;
+}
+
+/* Table Container */
+table {
+    width: 90%;
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table Headers */
+th {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Table Data */
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Alternating Row Colors */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Last Row Border Removal */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Styling */
+span {
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+/* Confirmed Status */
+span[style*="green"] {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Cancelled Status */
+span[style*="red"] {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive Design */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    table {
+        width: 95%;
+    }
+}
+
+/* Small Screens (Mobile Phones) */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    /* Table Scroll for Small Screens */
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}

@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="model.admin.Car" %>
+<%@ page import="dao.admin.CarDAO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="javax.servlet.http.HttpServletRequest" %>
+<%@ page session="true" %>
+<%
+    // Check if admin session exists
+    String adminId = (String) session.getAttribute("adminId");
+
+    if (adminId == null) {
+        // If admin session is missing, redirect to login page
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
+        return;
+    }
+%>
+
+
+<%
+    String carID = request.getParameter("id");
+    CarDAO carDAO = new CarDAO();
+    Car car = carDAO.getCarById(carID);
+%>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Car</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/update.css">
+</head>
+<body>
+<%@ include file="header.jsp" %>
+    <div class="dashboard-container">
+        <h1>Update Car</h1>
+        
+        <form action="UpdateCarServlet" method="post">
+            <input type="hidden" name="carID" value="<%= car.getCarID() %>">
+
+            <label>Model:</label>
+            <input type="text" name="model" value="<%= car.getModel() %>" required>
+
+            <label>Plate Number:</label>
+            <input type="text" name="plateNumber" value="<%= car.getPlateNumber() %>" required>
+
+            <label>Status:</label>
+            <select name="status">
+                <option value="Available" <%= car.getStatus().equals("Available") ? "selected" : "" %>>Available</option>
+                <option value="Unavailable" <%= car.getStatus().equals("Unavailable") ? "selected" : "" %>>Unavailable</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">Update Car</button>
+            <a href="CarSection.jsp" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+    <%@ include file="footer.jsp" %>
+</body>
+</html>

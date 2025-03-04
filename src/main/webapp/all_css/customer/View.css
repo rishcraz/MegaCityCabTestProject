@@ -1,0 +1,87 @@
+/* ===== General Styles ===== */
+html, body {
+    height: 100%; /* Ensures the full height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    color: #333;
+}
+
+/* ===== Main Content to Push Footer Down ===== */
+.main-content {
+    min-height: calc(100vh - 100px); /* Push footer down, adjust based on footer height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ===== Headings ===== */
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* ===== Table Styles ===== */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* ===== Status Badge ===== */
+.badge {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    font-weight: 600;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Modals ===== */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background: #007bff;
+    color: #fff;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .table thead {
+        display: none;
+    }
+
+    .table, tbody, tr, td {
+        display: block;
+        width: 100%;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #007bff;
+    }
+}

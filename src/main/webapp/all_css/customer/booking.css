@@ -1,0 +1,158 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Full Page Layout */
+body {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Header and Footer Containers */
+.header-container, .footer-container {
+    width: 100%;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px auto; /* Centers the container */
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Input Fields */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+/* Readonly Fields */
+input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Map Styling */
+#map {
+    height: 350px;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Submit Button */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for Book Your Cab heading */
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.megacity {
+    color: #14213D; /* Default text color */
+}
+
+.city {
+    color: #FCA311; /* Yellow */
+}
+
+.cab {
+    color: #14213D; /* Default text color */
+}
+
+/* Responsive Design */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    input, select, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #map {
+        height: 300px;
+    }
+}
+
+/* Small Screens (Mobile Phones) */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    input, select, button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    #map {
+        height: 250px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

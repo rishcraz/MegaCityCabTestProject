@@ -1,0 +1,163 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Billing Section */
+.container {
+    max-width: 800px;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-in-out;
+    flex-grow: 1;
+}
+
+/* Header Styling */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+form {
+    
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Input Fields */
+.form-control {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Payment Method Radio Buttons */
+input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+    background: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-info {
+    background: #17a2b8;
+    border: none;
+}
+
+.btn-info:hover {
+    background: #138496;
+    transform: translateY(-2px);
+}
+
+/* Billing Card */
+.card {
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    background: #ffffff;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+/* Billing Details */
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Payment Status */
+.text-danger {
+    font-weight: bold;
+}
+
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+}
