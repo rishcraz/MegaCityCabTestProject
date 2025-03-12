@@ -1,4 +1,4 @@
-package controller.customer;
+package com.megacitycab.controller.customer;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
