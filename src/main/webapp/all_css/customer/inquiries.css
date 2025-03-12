@@ -1,0 +1,101 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #eaf6ff, #d0eaff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+.inquiries-container {
+    max-width: 85%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.inquiries-container:hover {
+    transform: scale(1.02);
+}
+
+
+.header-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.header-section p {
+    font-size: 18px;
+    color: #555;
+}
+
+
+.inquiry-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.inquiry-card {
+    background: #f2f8ff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.inquiry-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+}
+
+.inquiry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inquiry-header h5 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.badge {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.inquiry-body p {
+    margin: 10px 0;
+}
+
+.inquiry-reply h6 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.inquiry-reply p {
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .inquiries-container {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .header-section h2 {
+        font-size: 28px;
+    }
+
+    .header-section p {
+        font-size: 16px;
+    }
+}

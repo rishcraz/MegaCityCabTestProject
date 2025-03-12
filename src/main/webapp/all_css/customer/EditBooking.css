@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,7 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Body Styling */
+
 body {
     background: #f8f9fa;
     color: #212529;
@@ -16,7 +15,7 @@ body {
     min-height: 100vh;
 }
 
-/* Container Styles */
+
 .container {
     display: flex;
     justify-content: center;
@@ -24,7 +23,7 @@ body {
     min-height: 80vh;
 }
 
-/* Card Design */
+
 .card {
     width: 100%;
     max-width: 500px;
@@ -38,20 +37,20 @@ body {
     transform: scale(1.02);
 }
 
-/* Heading */
+
 h2 {
     font-size: 28px;
     color: black;
     font-weight: bold;
 }
 
-/* Form Labels */
+
 .form-label {
     font-weight: bold;
     color: #495057;
 }
 
-/* Input Fields */
+
 .form-control, .form-select {
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -68,7 +67,7 @@ h2 {
     outline: none;
 }
 
-/* Button Styles */
+
 .btn-primary {
     background: #007bff;
     border: none;
@@ -97,7 +96,7 @@ h2 {
     background: #5a6268;
 }
 
-/* Back Button */
+
 .text-center a {
     display: inline-block;
     text-decoration: none;

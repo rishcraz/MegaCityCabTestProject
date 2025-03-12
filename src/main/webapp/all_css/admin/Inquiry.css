@@ -1,0 +1,76 @@
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+
+h2 {
+    font-weight: bold;
+    color: #ffc107;
+    text-transform: uppercase;
+}
+
+.form-label {
+    color: #ffffff; 
+}
+
+
+.card.bg-dark {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+}
+
+
+.card-body p {
+    color: #b0b0b0; 
+    font-size: 1rem;
+}
+
+
+textarea.form-control {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+textarea.form-control:focus {
+    background-color: #444;
+    border-color: #ffc107;
+    color: #fff;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+    color: #ffffff;
+}
+
+
+footer {
+    background-color: #121212;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+
+footer a {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
