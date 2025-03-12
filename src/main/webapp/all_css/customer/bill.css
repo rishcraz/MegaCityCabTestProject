@@ -1,4 +1,3 @@
-/* General Page Styling */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #eaf6ff, #d0eaff);
@@ -10,17 +9,17 @@ body {
     min-height: 100vh;
 }
 
-/* Billing Container */
+
 .billing-container {
     max-width: 800px;
     margin: 50px auto;
-    background: #ffff;/* Darker background for container */
+    background: #ffff;
     padding: 40px;
     border-radius: 12px;
    
 }
 
-/* Header Styling */
+
 h2 {
     font-size: 28px;
     font-weight: bold;
@@ -30,7 +29,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* Input Section */
+
 .input-section {
     text-align: center;
     margin-bottom: 30px;
@@ -56,7 +55,7 @@ h2 {
 
 
 .input-section button {
-    background: #00b8d4; /* Light Blue */
+    background: #00b8d4; 
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -69,13 +68,13 @@ h2 {
 }
 
 .input-section button:hover {
-    background: #008ba3; /* Darker Light Blue */
+    background: #008ba3; 
     transform: translateY(-2px);
 }
 
 /* Billing Details */
 .billing-details {
-    background: #2a2a3d; /* Dark background for details */
+    background: #2a2a3d; 
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
@@ -101,10 +100,10 @@ h2 {
 }
 
 .billing-details strong {
-    color: #ffd700; /* Gold color for important text */
+    color: #ffd700; 
 }
 
-/* Payment Section */
+
 .payment-section {
     text-align: center;
     margin-top: 20px;
@@ -122,7 +121,7 @@ h2 {
 }
 
 .payment-section button {
-    background: #e6b800; /* Gold */
+    background: #e6b800; 
     color: #212529;
     padding: 10px 20px;
     border: none;
@@ -134,15 +133,15 @@ h2 {
 }
 
 .payment-section button:hover {
-    background: #e6b800; /* Darker gold */
+    background: #e6b800; 
     transform: translateY(-2px);
 }
 
-/* Download Button */
+
 .download-btn {
     display: block;
     text-align: center;
-    background: #17a2b8; /* Light Blue */
+    background: #17a2b8;
     color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
@@ -154,21 +153,21 @@ h2 {
 }
 
 .download-btn:hover {
-    background: #138496; /* Darker Light Blue */
+    background: #138496; 
     transform: translateY(-2px);
 }
 
-/* Status Messages */
+
 .waiting-approval {
     text-align: center;
-    color: #e6b800; /* Gold */
+    color: #e6b800; 
     font-weight: bold;
     margin-top: 20px;
 }
 
 .error-message {
     text-align: center;
-    color: #d9534f; /* Red */
+    color: #d9534f; 
     font-weight: bold;
     margin-top: 20px;
 }

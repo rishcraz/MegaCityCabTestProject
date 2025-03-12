@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="dao.admin.EmployeeDAO" %>
-<%@ page import="dao.customer.BookingDAO" %>
-<%@ page import="model.admin.Employee" %>
-<%@ page import="model.customer.Booking" %>
+<%@ page import="com.megacitycab.dao.admin.EmployeeDAO" %>
+<%@ page import="com.megacitycab.dao.customer.BookingDAO" %>
+<%@ page import="com.megacitycab.model.admin.Employee" %>
+<%@ page import="com.megacitycab.model.customer.Booking" %>
 <%@ include file="header.jsp" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 

@@ -1,9 +1,11 @@
-package controller.admin;
+package com.megacitycab.controller.admin;
 
-import dao.admin.CarDAO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+
+import com.megacitycab.dao.admin.CarDAO;
+
 import java.io.IOException;
 
 @WebServlet("/AssignCarServlet")

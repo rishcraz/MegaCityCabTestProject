@@ -1,4 +1,4 @@
-package model.customer;
+package com.megacitycab.model.customer;
 
 public class Billing {
     private String orderNumber;
