@@ -1,4 +1,4 @@
-/* General Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,7 @@ body {
 }
 
 
-/* Hero Section */
+
 .hero {
     position: relative;
     height: 60vh;
@@ -53,7 +53,7 @@ body {
     font-size: 1.3rem;
 }
 
-/* Moving Taxi Animation */
+
 .road-container {
     position: relative;
     width: 100%;
@@ -82,7 +82,7 @@ body {
     animation: moveTaxi 5s ease-in-out infinite;
 }
 
-/* About Section */
+
 .about-section {
     text-align: center;
     padding: 60px 20px;
@@ -101,7 +101,7 @@ body {
     line-height: 1.6;
 }
 
-/* Card Sections */
+
 .card-section {
     text-align: center;
     padding: 60px 20px;
@@ -112,7 +112,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Info Cards */
+
 .card-container {
     display: flex;
     justify-content: center;
@@ -135,7 +135,7 @@ body {
     transform: translateY(-10px);
 }
 
-/* Icons */
+
 .info-card i {
     font-size: 50px;
     color: #ff8c00;
@@ -152,7 +152,7 @@ body {
     color: #555;
 }
 
-/* Parallax Section */
+
 .parallax {
     position: relative;
     height: 300px;
@@ -174,7 +174,7 @@ body {
     z-index: -1;
 }
 
-/* Footer */
+
 .footer {
     background: #222;
     color: white;
@@ -183,7 +183,7 @@ body {
     font-size: 1rem;
 }
 
-/* Animations */
+
 @keyframes moveRoad {
     from { left: 0; }
     to { left: -100px; }
