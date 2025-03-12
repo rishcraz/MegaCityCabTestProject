@@ -1,4 +1,4 @@
-package util;
+package com.megacitycab.util;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;

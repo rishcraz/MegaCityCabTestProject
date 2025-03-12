@@ -1,5 +1,4 @@
 
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,17 +6,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Full Page Layout */
+
 body {
       background: linear-gradient(135deg, #eaf6ff, #d0eaff);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
-    color: #ecf0f1; /* Light text for contrast */
+    color: #ecf0f1;
 }
 
-/* Page Heading */
+
 h2 {
     text-align: center;
     margin: 20px 0;
@@ -31,7 +30,7 @@ h4 {
 
 	}
 
-/* Booking Container */
+
 .booking-container {
     width: 90%;
     margin: 0 auto;
@@ -40,7 +39,7 @@ h4 {
     gap: 20px;
 }
 
-/* Booking Card Styling */
+
 .booking-card {
     background-color: #f2f8ff; /* Card background with dark shade */
     padding: 20px;
@@ -49,7 +48,7 @@ h4 {
     color: #f2f8ff;
 }
 
-/* Card Header */
+
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -58,7 +57,7 @@ h4 {
     color: #ecf0f1;
 }
 
-/* Status Styling */
+
 .status {
     padding: 5px 15px;
     border-radius: 6px;
@@ -66,19 +65,19 @@ h4 {
     text-align: center;
 }
 
-/* Confirmed Status */
+
 .status.confirmed {
-    background-color: #2ecc71; /* Light green for confirmed status */
+    background-color: #2ecc71; 
     color: #155724;
 }
 
-/* Cancelled Status */
+
 .status.cancelled {
-    background-color: #e74c3c; /* Light red for cancelled status */
+    background-color: #e74c3c; 
     color: #fff;
 }
 
-/* Card Body */
+
 .card-body p {
     font-size: 16px;
     margin: 5px 0;

@@ -2,12 +2,11 @@
 <%@ page import="com.megacitycab.dao.admin.FareRateDAO,com.megacitycab.model.admin.FareRate, java.util.List" %>
 <%@ page session="true" %>
 <%
-    // Check if admin session exists
-    String adminId = (String) session.getAttribute("adminId");
+    HttpSession sessionObj = request.getSession(false); // Don't create a new session if none exists
+    String managerId = (sessionObj != null) ? (String) sessionObj.getAttribute("managerId") : null;
 
-    if (adminId == null) {
-        // If admin session is missing, redirect to login page
-        response.sendRedirect(request.getContextPath() + "/login.jsp");
+    if (managerId == null) {
+        response.sendRedirect(request.getContextPath() + "/login.jsp"); // Redirect to login if not logged in
         return;
     }
 %>

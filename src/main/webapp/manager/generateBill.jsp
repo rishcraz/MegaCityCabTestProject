@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="dao.customer.BillingDAO, dao.admin.FareRateDAO, dao.customer.BookingDAO, model.admin.FareRate, model.customer.Billing, model.customer.Booking, java.util.List" %>
+<%@ page import="com.megacitycab.dao.customer.BillingDAO,com.megacitycab.dao.admin.FareRateDAO, com.megacitycab.dao.customer.BookingDAO,com.megacitycab.model.admin.FareRate,com.megacitycab.model.customer.Billing,com.megacitycab.model.customer.Booking, java.util.List" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="java.time.LocalDateTime, java.time.format.DateTimeFormatter" %>
 

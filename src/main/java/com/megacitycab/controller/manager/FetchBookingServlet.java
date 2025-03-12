@@ -1,8 +1,4 @@
-package controller.manager;
-
-import dao.customer.BookingDAO;
-import model.customer.Booking;
-import util.LocalDateTimeAdapter;
+package com.megacitycab.controller.manager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +10,9 @@ import java.time.LocalDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.megacitycab.dao.customer.BookingDAO;
+import com.megacitycab.model.customer.Booking;
+import com.megacitycab.util.LocalDateTimeAdapter;
 
 @WebServlet("/manager/FetchBookingServlet")
 public class FetchBookingServlet extends HttpServlet {
