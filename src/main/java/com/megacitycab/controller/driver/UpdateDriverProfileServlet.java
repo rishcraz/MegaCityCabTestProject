@@ -1,11 +1,12 @@
-package controller.driver;
-
-import dao.admin.EmployeeDAO;
-import model.admin.Employee;
+package com.megacitycab.controller.driver;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+
+import com.megacitycab.dao.admin.EmployeeDAO;
+import com.megacitycab.model.admin.Employee;
+
 import java.io.IOException;
 
 @WebServlet("/UpdateDriverProfileServlet")

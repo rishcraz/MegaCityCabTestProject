@@ -1,8 +1,9 @@
-package dao.admin;
+package com.megacitycab.dao.admin;
 
-import model.admin.SystemSettings;
-import util.DBConnection;
 import java.sql.*;
+
+import com.megacitycab.model.admin.SystemSettings;
+import com.megacitycab.util.DBConnection;
 
 public class SystemSettingsDAO {
 
