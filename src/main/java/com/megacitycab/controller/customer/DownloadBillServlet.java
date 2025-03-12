@@ -1,9 +1,10 @@
-package controller.customer;
+package com.megacitycab.controller.customer;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
-import dao.customer.BillingDAO;
-import model.customer.Billing;
+import com.megacitycab.dao.customer.BillingDAO;
+import com.megacitycab.model.customer.Billing;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import javax.servlet.ServletException;

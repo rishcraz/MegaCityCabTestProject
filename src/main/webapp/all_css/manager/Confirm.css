@@ -1,0 +1,130 @@
+body {
+    background: linear-gradient(135deg, #2f2f2f, #121212);
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #4db6ac;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bill-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #1d1d1d;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+
+.bill-tile {
+    background: #2b2b2b;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bill-tile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+.bill-tile h3 {
+    font-size: 1.7rem;
+    color: #4db6ac;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.bill-tile p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+
+.btn-approve {
+    background: #4caf50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+.btn-approve:hover {
+    background: #388e3c;
+    transform: scale(1.05);
+}
+
+.btn-back {
+    background: #4db6ac;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-back:hover {
+    background: #00796b;
+    transform: scale(1.05);
+}
+
+.text-danger {
+    font-size: 1.2rem;
+    color: #ff5252;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.bi {
+    margin-right: 8px;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .bill-tile {
+        padding: 15px;
+    }
+
+    .btn-approve, .btn-back {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .bill-tile {
+        padding: 10px;
+    }
+}

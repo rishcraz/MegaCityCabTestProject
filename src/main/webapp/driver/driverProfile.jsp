@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%@ page import="dao.admin.EmployeeDAO" %>
-<%@ page import="model.admin.Employee" %>
+<%@ page import="com.megacitycab.dao.admin.EmployeeDAO" %>
+<%@ page import="com.megacitycab.model.admin.Employee" %>
 
 <%
     // Get driverId from session

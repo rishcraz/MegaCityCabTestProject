@@ -1,4 +1,4 @@
-package model.admin;
+package com.megacitycab.model.admin;
 
 
 

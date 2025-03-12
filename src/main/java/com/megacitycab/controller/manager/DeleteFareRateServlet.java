@@ -1,4 +1,4 @@
-package com.megacitycab.controller.admin;
+package com.megacitycab.controller.manager;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.megacitycab.dao.admin.FareRateDAO;
 
-@WebServlet("/admin/DeleteFareRateServlet")
+@WebServlet("/manager/DeleteFareRateServlet")
 public class DeleteFareRateServlet extends HttpServlet {
     
 	private static final long serialVersionUID = 1L;

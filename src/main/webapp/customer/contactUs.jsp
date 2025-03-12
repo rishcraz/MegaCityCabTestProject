@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<%@ page import="model.User" %>
+<%@ page import="com.megacitycab.model.User" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%
     HttpSession userSession = request.getSession(false);

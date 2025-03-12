@@ -1,12 +1,13 @@
-package controller.admin;
+package com.megacitycab.controller.admin;
 
-import dao.admin.CarDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.megacitycab.dao.admin.CarDAO;
 
 @WebServlet("/admin/DeleteCarServlet")
 public class DeleteCarServlet extends HttpServlet {
