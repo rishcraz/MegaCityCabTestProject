@@ -1,13 +1,14 @@
-package controller.customer;
-
-import dao.customer.InquiryDAO;
-import model.customer.Inquiry;
+package com.megacitycab.controller.customer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.megacitycab.dao.customer.InquiryDAO;
+import com.megacitycab.model.customer.Inquiry;
+
 import java.io.IOException;
 
 @WebServlet("/customer/SendInquiryServlet")

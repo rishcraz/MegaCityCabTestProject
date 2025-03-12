@@ -1,12 +1,13 @@
-package controller;
-
-import dao.UserDAO;
-import model.User;
-import util.UserServiceFactory;
+package com.megacitycab.controller;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+
+import com.megacitycab.dao.UserDAO;
+import com.megacitycab.model.User;
+import com.megacitycab.util.UserServiceFactory;
+
 import java.io.IOException;
 import java.util.UUID;
 
