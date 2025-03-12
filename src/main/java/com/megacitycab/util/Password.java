@@ -1,4 +1,4 @@
-package util;
+package com.megacitycab.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

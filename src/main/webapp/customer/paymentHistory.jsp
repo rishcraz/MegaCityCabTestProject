@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>  
-<%@ page import="dao.customer.BillingDAO, model.customer.Billing, java.util.List" %>
+<%@ page import="com.megacitycab.dao.customer.BillingDAO,com.megacitycab.model.customer.Billing, java.util.List" %>
 <%
     HttpSession userSession = request.getSession(false);
     String userId = (userSession != null) ? (String) userSession.getAttribute("userId") : null;

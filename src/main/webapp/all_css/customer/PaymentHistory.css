@@ -1,4 +1,4 @@
-/* Global Styles */
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #f4f7fc;
@@ -8,7 +8,7 @@ body {
     background: linear-gradient(135deg, #eaf6ff, #d0eaff);
 }
 
-/* Payment History Container */
+
 .payment-history {
      background: #f2f8ff;
     padding: 40px;
@@ -21,7 +21,7 @@ body {
     animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Title */
+
 h2 {
     font-size: 28px;
     font-weight: bold;
@@ -30,7 +30,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* Card Layout */
+
 .payment-card {
    background: #ffff;
     border-radius: 10px;
@@ -59,7 +59,7 @@ h2 {
     margin: 5px 0;
 }
 
-/* Payment Status Badge */
+
 .badge {
     padding: 8px 14px;
     font-size: 13px;
@@ -82,7 +82,7 @@ h2 {
     color: #ffffff;
 }
 
-/* Buttons */
+
 .btn-download {
     background: #17a2b8;
     color: #ffffff;

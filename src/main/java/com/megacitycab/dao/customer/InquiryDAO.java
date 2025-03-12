@@ -1,13 +1,13 @@
-package dao.customer;
-
-import model.customer.Inquiry;
-import util.DBConnection;
+package com.megacitycab.dao.customer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet; // <-- Added this
 import java.util.ArrayList; // <-- Added this
 import java.util.List; // <-- And this
+
+import com.megacitycab.model.customer.Inquiry;
+import com.megacitycab.util.DBConnection;
 
 public class InquiryDAO {
 

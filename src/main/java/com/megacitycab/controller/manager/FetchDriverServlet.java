@@ -1,7 +1,4 @@
-package controller.manager;
-
-import dao.admin.EmployeeDAO;
-import model.admin.Employee;
+package com.megacitycab.controller.manager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.google.gson.Gson;
+import com.megacitycab.dao.admin.EmployeeDAO;
+import com.megacitycab.model.admin.Employee;
 
 @WebServlet("/manager/FetchDriverServlet")
 public class FetchDriverServlet extends HttpServlet {

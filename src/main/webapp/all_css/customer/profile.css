@@ -1,0 +1,65 @@
+body {
+    background: linear-gradient(135deg, #eaf6ff, #d0eaff);
+    font-family: Arial, sans-serif;
+}
+
+
+.profile-card {
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color:#f2f8ff;
+}
+
+.card-header {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.card-body p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.edit-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+.hidden-form {
+    display: none;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+     background-color:#f2f8ff;
+}
+
+form .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form .form-control {
+    margin-bottom: 15px;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+form .btn-secondary {
+    margin-left: 10px;
+}

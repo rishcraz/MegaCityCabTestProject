@@ -1,0 +1,139 @@
+body {
+    background-color: #121212;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    padding: 15px 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.profile-details {
+    padding: 25px;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    color: #e0e0e0;
+}
+
+.profile-details p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.profile-details strong {
+    color: #ff9800;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    background-color: #388e3c;
+    border-color: #388e3c;
+}
+
+.btn-primary:hover {
+    background-color: #2c6b32;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    border-color: #757575;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+.btn-success {
+    background-color: #388e3c;
+    border-color: #388e3c;
+}
+
+.btn-success:hover {
+    background-color: #2c6b32;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    background-color: #333333;
+    border: 1px solid #444444;
+    color: #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.form-control:focus {
+    background-color: #444444;
+    border-color: #ff9800;
+    color: #ffffff;
+}
+
+button {
+    width: 48%;
+    margin-right: 2%;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 767px) {
+    .profile-container {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+}
