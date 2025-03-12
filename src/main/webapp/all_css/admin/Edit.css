@@ -1,18 +1,17 @@
-/* ===== General Styles ===== */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: #343a40;  /* Dark background */
-    color: #fff;  /* White text */
+    background: #343a40;  
+    color: #fff;  
 }
 
 .container {
     max-width: 600px;
     margin: 50px auto;
     padding: 30px;
-    background: #495057;  /* Dark container background */
+    background: #495057; 
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border: 1px solid #6c757d;
@@ -26,7 +25,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* ===== Form Styling ===== */
+
 form {
     display: flex;
     flex-direction: column;
@@ -43,8 +42,8 @@ form {
     font-size: 1rem;
     border: 1px solid #ced4da;
     border-radius: 8px;
-    background: #6c757d;  /* Dark input background */
-    color: #fff;  /* White text */
+    background: #6c757d;  
+    color: #fff;  
     transition: border-color 0.3s ease, background 0.3s ease;
 }
 
@@ -54,7 +53,7 @@ form {
     outline: none;
 }
 
-/* ===== Buttons Styling ===== */
+
 .btn {
     padding: 12px;
     font-size: 1rem;

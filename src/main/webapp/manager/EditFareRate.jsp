@@ -2,21 +2,27 @@
 <%@ page import="com.megacitycab.dao.admin.FareRateDAO,com.megacitycab.model.admin.FareRate" %>
 <%@ page session="true" %>
 <%
-    // Check if admin session exists
-    String adminId = (String) session.getAttribute("adminId");
+    HttpSession sessionObj = request.getSession(false); // Don't create a new session if none exists
+    String managerId = (sessionObj != null) ? (String) sessionObj.getAttribute("managerId") : null;
 
-    if (adminId == null) {
-        // If admin session is missing, redirect to login page
-        response.sendRedirect(request.getContextPath() + "/login.jsp");
+    if (managerId == null) {
+        response.sendRedirect(request.getContextPath() + "/login.jsp"); // Redirect to login if not logged in
         return;
     }
 %>
 
 <%
-    int id = Integer.parseInt(request.getParameter("id"));
+    String idParam = request.getParameter("id");
+    if (idParam == null || idParam.isEmpty()) {
+        response.sendRedirect(request.getContextPath() + "/manager/FareRates.jsp");
+        return;
+    }
+
+    int id = Integer.parseInt(idParam);
     FareRateDAO fareDAO = new FareRateDAO();
     FareRate fare = fareDAO.getFareRateById(id);
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +34,7 @@
 <%@ include file="header.jsp" %>
     <div class="dashboard-container">
         <h1>Edit Fare Rate</h1>
-        <form action="/admin/EditFareRateServlet" method="post" class="form-container">
+        <form action="/manager/EditFareRateServlet" method="post" class="form-container">
             <input type="hidden" name="id" value="<%= fare.getId() %>">
 
             <label>Car Type:</label>

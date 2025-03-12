@@ -1,12 +1,13 @@
-package controller.admin;
-
-import dao.UserDAO;
+package com.megacitycab.controller.admin;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.megacitycab.dao.UserDAO;
+
 import java.io.IOException;
 
 @WebServlet("/admin/DeactivateCustomerServlet")
