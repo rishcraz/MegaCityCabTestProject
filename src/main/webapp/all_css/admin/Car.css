@@ -1,0 +1,120 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.card {
+    background-color: #1e1e1e;
+    border: none;
+}
+
+.card-header {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-body {
+    background-color: #252525;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #00bcd4;
+}
+
+form .form-control {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+form .form-control:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 0.2rem rgba(0, 188, 212, 0.25);
+}
+
+form .form-select {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+button {
+    background-color: #00bcd4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0288d1;
+}
+
+.table-dark {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.table-dark th, .table-dark td {
+    border: 1px solid #444;
+}
+
+.table-dark thead {
+    background-color: #333;
+}
+
+.table-dark tbody tr:nth-child(even) {
+    background-color: #292929;
+}
+
+.table-dark tbody tr:hover {
+    background-color: #555;
+}
+
+.table-dark .btn-sm {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.table-dark .btn-warning {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+.table-dark .btn-warning:hover {
+    background-color: #f57c00;
+}
+
+.table-dark .btn-danger {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.table-dark .btn-danger:hover {
+    background-color: #e53935;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.9rem;
+    }
+    
+    form {
+        flex-direction: column;
+    }
+
+    .form-control,
+    .form-select,
+    button {
+        width: 100%;
+    }
+}

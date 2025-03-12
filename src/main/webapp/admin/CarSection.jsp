@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page import="model.admin.Car" %>
-<%@ page import="dao.admin.CarDAO" %>
+<%@ page import="com.megacitycab.model.admin.Car" %>
+<%@ page import="com.megacitycab.dao.admin.CarDAO" %>
 <%@ page session="true" %>
 <%
     // Check if admin session exists

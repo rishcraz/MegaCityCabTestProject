@@ -1,12 +1,13 @@
-package controller.customer;
+package com.megacitycab.controller.customer;
 
-import dao.customer.BillingDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.megacitycab.dao.customer.BillingDAO;
 
 @WebServlet("/customer/ConfirmPaymentServlet")
 public class ConfirmPaymentServlet extends HttpServlet {

@@ -1,11 +1,13 @@
-package controller.manager;
+package com.megacitycab.controller.manager;
 
-import dao.customer.BookingDAO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.megacitycab.dao.customer.BookingDAO;
+
 import java.io.IOException;
 
 @WebServlet("/manager/ConfirmBookingServlet")
