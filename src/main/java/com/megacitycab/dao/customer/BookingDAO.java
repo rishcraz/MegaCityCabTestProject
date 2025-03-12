@@ -1,12 +1,13 @@
-package dao.customer;
+package com.megacitycab.dao.customer;
 
-import model.customer.Booking;
-import util.DBConnection;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.megacitycab.model.customer.Booking;
+import com.megacitycab.util.DBConnection;
 
 public class BookingDAO {
     private Connection connection;

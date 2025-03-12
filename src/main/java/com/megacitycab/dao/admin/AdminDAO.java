@@ -1,11 +1,11 @@
-package dao.admin;
+package com.megacitycab.dao.admin;
 
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import model.admin.Employee;
-import util.DBConnection;
+import com.megacitycab.model.admin.Employee;
+import com.megacitycab.util.DBConnection;
 
 
 public class AdminDAO {

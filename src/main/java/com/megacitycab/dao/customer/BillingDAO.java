@@ -1,10 +1,11 @@
-package dao.customer;
+package com.megacitycab.dao.customer;
 
-import model.customer.Billing;
-import util.DBConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.megacitycab.model.customer.Billing;
+import com.megacitycab.util.DBConnection;
 
 public class BillingDAO {
 	

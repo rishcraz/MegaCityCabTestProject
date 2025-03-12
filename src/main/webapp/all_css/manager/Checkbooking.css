@@ -1,0 +1,146 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #1c1f26; 
+    color: #e0e0e0;
+}
+
+.main-content {
+    min-height: calc(100vh - 60px); 
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px;
+}
+
+.container {
+    flex: 1;
+}
+
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00bcd4; 
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.booking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    margin-bottom: 20px;
+}
+
+
+.booking-item {
+    background-color: #2a2f3a; 
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-left: 5px solid #00bcd4; 
+    transition: all 0.3s ease;
+}
+
+
+.booking-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #3e444d;
+}
+
+.data-title {
+    font-weight: bold;
+    color: #00bcd4;  
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.data-value {
+    color: #e0e0e0; 
+    text-align: right;
+    font-size: 1.1rem; 
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.status {
+    background-color: #ff9800; 
+    padding: 6px 14px;
+    border-radius: 5px;
+    color: #333;  
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+
+.booking-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+
+.action-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 160px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s all;
+}
+
+.action-btn.success {
+    background-color: #4caf50; 
+    color: #fff;
+}
+
+.action-btn.danger {
+    background-color: #f44336; 
+    color: #fff;
+}
+
+.action-btn.success:hover {
+    background-color: #45a049; 
+}
+
+.action-btn.danger:hover {
+    background-color: #d32f2f; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking-item {
+        padding: 20px;
+    }
+    .data-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .data-title {
+        font-size: 1rem;
+    }
+    .data-value {
+        font-size: 1.1rem;
+    }
+}

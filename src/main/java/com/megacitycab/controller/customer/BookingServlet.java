@@ -1,7 +1,5 @@
-package controller.customer;
+package com.megacitycab.controller.customer;
 
-import dao.customer.BookingDAO;
-import model.customer.Booking;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.megacitycab.dao.customer.BookingDAO;
+import com.megacitycab.model.customer.Booking;
 
 @WebServlet("/customer/BookingServlet")
 public class BookingServlet extends HttpServlet {
