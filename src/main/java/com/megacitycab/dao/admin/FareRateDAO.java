@@ -9,7 +9,8 @@ import java.util.List;
 public class FareRateDAO {
 
    
-    public List<FareRate> getAllFareRates() {
+ 
+	public List<FareRate> getAllFareRates() {
         List<FareRate> fareRates = new ArrayList<>();
         String sql = "SELECT * FROM fare_rates";
         

@@ -10,7 +10,6 @@
     String adminId = (String) session.getAttribute("adminId");
 
     if (adminId == null) {
-        // If admin session is missing, redirect to login page
         response.sendRedirect(request.getContextPath() + "/login.jsp");
         return;
     }
@@ -28,7 +27,7 @@
         CarDAO carDAO = new CarDAO();
 
         employee = employeeDAO.findEmployeeById(employeeId);
-        car = carDAO.findCarById(carIdStr); // Using String for carId since it's a VARCHAR in DB
+        car = carDAO.findCarById(carIdStr);
     }
 %>
 
@@ -38,77 +37,73 @@
     <meta charset="UTF-8">
     <title>Assign Car to Driver</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .container {
-            max-width: 600px;
-            margin-top: 50px;
-        }
-        .card {
-            background: #f8f9fa;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-        h2 { text-align: center; }
-    </style>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Assign.css">
 </head>
 <body>
+<%@ include file="header.jsp" %>
 
 <div class="container">
-    <h2>Assign Car to Driver</h2>
+    <h2 class="text-center">Assign Car to Driver </h2>
 
-    <!-- Form to get employee and car details -->
-    <form method="get" class="mb-4">
-        <div class="mb-3">
+    <!-- Form to fetch details -->
+    <form method="get" class="dark-form">
+        <div class="mb-4">
             <label for="employeeId" class="form-label">Employee ID</label>
-            <input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="e.g. EMP003" required>
+            <input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="EMP001" required>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
             <label for="carId" class="form-label">Car ID</label>
-            <input type="text" class="form-control" id="carId" name="carId" placeholder="e.g. CAR001" required>
+            <input type="text" class="form-control" id="carId" name="carId" placeholder="CAR001" required>
         </div>
 
-        <button type="submit" class="btn btn-info w-100">Get Details</button>
+        <button type="submit" class="btn btn-primary w-100">Get Details</button>
     </form>
 
     <!-- Employee Details Card -->
     <% if (employee != null) { %>
-        <div class="card mb-4">
+        <div class="card dark-card mt-4">
             <div class="card-body">
-                <h5 class="card-title">Employee Details</h5>
-                <p><strong>Employee ID:</strong> <%= employee.getEmployeeID() %></p>
-                <p><strong>Username:</strong> <%= employee.getUsername() %></p>
-                <p><strong>Email:</strong> <%= employee.getEmail() %></p>
+                <h5 class="card-title"> Employee Details</h5>
+                <ul>
+                    <li><strong>ID:</strong> <%= employee.getEmployeeID() %></li>
+                    <li><strong>Username:</strong> <%= employee.getUsername() %></li>
+                    <li><strong>Email:</strong> <%= employee.getEmail() %></li>
+                </ul>
             </div>
         </div>
     <% } else if (employeeId != null) { %>
-        <div class="alert alert-danger text-center">No employee found with ID: <%= employeeId %></div>
+        <div class="alert alert-danger text-center mt-4">No employee found with ID: <%= employeeId %></div>
     <% } %>
 
     <!-- Car Details Card -->
     <% if (car != null) { %>
-        <div class="card mb-4">
+        <div class="card dark-card mt-4">
             <div class="card-body">
-                <h5 class="card-title">Car Details</h5>
-                <p><strong>Car ID:</strong> <%= car.getCarID() %></p>
-                <p><strong>Model:</strong> <%= car.getModel() %></p>
-                <p><strong>Plate Number:</strong> <%= car.getPlateNumber() %></p>
-                <p><strong>Status:</strong> <%= car.getStatus() %></p>
+                <h5 class="card-title"> Car Details</h5>
+                <ul>
+                    <li><strong>ID:</strong> <%= car.getCarID() %></li>
+                    <li><strong>Model:</strong> <%= car.getModel() %></li>
+                    <li><strong>Plate:</strong> <%= car.getPlateNumber() %></li>
+                    <li><strong>Status:</strong> <%= car.getStatus() %></li>
+                </ul>
             </div>
         </div>
     <% } else if (carIdStr != null) { %>
-        <div class="alert alert-danger text-center">No car found with ID: <%= carIdStr %></div>
+        <div class="alert alert-danger text-center mt-4">No car found with ID: <%= carIdStr %></div>
     <% } %>
 
     <!-- Assign Car Button -->
     <% if (employee != null && car != null) { %>
-        <form method="post" action="<%= request.getContextPath() %>/AssignCarServlet">
+        <form method="post" action="<%= request.getContextPath() %>/AssignCarServlet" class="mt-4">
             <input type="hidden" name="employeeId" value="<%= employee.getEmployeeID() %>">
             <input type="hidden" name="carId" value="<%= car.getCarID() %>">
 
-            <button type="submit" class="btn btn-success w-100">Assign Car</button>
+            <button type="submit" class="btn btn-success w-100"> Assign Car</button>
         </form>
     <% } %>
 </div>
 
+<%@ include file="footer.jsp" %>
 </body>
 </html>

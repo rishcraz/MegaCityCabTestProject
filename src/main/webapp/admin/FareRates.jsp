@@ -21,15 +21,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Fare Rates</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Fare3.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Viewfare.css">
 </head>
 <body>
 <%@ include file="header.jsp" %>
     <div class="dashboard-container">
-        <!-- Return to Fare Management Button -->
-        <div class="top-right-container">
-            <a href="FareManagement.jsp" class="return-btn">Return</a>
-        </div>
 
         <h1>Fare Rates</h1>
         <table class="fare-table">
@@ -63,6 +59,5 @@
         </table>
     </div>
     <%@ include file="footer.jsp" %>
-    
 </body>
 </html>

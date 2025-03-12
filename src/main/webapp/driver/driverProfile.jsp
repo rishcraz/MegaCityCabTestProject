@@ -22,70 +22,50 @@
     <meta charset="UTF-8">
     <title>Driver Profile</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-        }
-        .card {
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-    <script>
-        function toggleForm() {
-            const form = document.getElementById('updateForm');
-            const card = document.getElementById('profileCard');
-            if (form.style.display === 'none') {
-                form.style.display = 'block';
-                card.style.display = 'none';
-            } else {
-                form.style.display = 'none';
-                card.style.display = 'block';
-            }
-        }
-    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/driver/profile.css">
 </head>
 <body>
 
 <%@ include file="header.jsp" %>
 
-<div class="container">
-    <h2 class="text-center mb-4">My Profile</h2>
+<div class="profile-container">
+    <h2 class="text-center">My Profile</h2>
 
     <% if (driver != null) { %>
-        <!-- Driver Profile Card -->
-        <div class="card" id="profileCard">
-            <h5 class="text-center mb-4">Driver Details</h5>
+        <!-- Driver Profile Details -->
+        <div class="profile-details" id="profileDetails">
+            <h4 class="text-center">Driver Details</h4>
             <p><strong>Employee ID:</strong> <%= driver.getEmployeeID() %></p>
             <p><strong>Full Name:</strong> <%= driver.getUsername() %></p>
             <p><strong>Email:</strong> <%= driver.getEmail() %></p>
             <p><strong>Phone Number:</strong> <%= driver.getPhone() != null ? driver.getPhone() : "Enter Your Phone No" %></p>
-            <button type="button" class="btn btn-primary w-100 mt-3" onclick="toggleForm()">Update Profile</button>
+            <button type="button" class="btn btn-primary" onclick="toggleForm()">Update Profile</button>
         </div>
 
         <!-- Update Profile Form (Hidden by Default) -->
         <form method="post" action="<%= request.getContextPath() %>/UpdateDriverProfileServlet" style="display: none;" id="updateForm">
             <input type="hidden" name="employeeId" value="<%= driver.getEmployeeID() %>">
 
-            <div class="mb-3">
-                <label for="username" class="form-label">Full Name</label>
+            <div class="form-group">
+                <label for="username">Full Name</label>
                 <input type="text" class="form-control" id="username" name="username" value="<%= driver.getUsername() %>" required>
             </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+            <div class="form-group">
+                <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="<%= driver.getEmail() %>" required>
             </div>
 
-            <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
                 <input type="text" class="form-control" id="phone" name="phone" value="<%= driver.getPhone() != null ? driver.getPhone() : "" %>">
             </div>
 
-            <button type="submit" class="btn btn-success w-100">Save Changes</button>
-            <button type="button" class="btn btn-secondary w-100 mt-2" onclick="toggleForm()">Cancel</button>
+            <div class="button-container">
+                <button type="submit" class="btn btn-success">Save Changes</button>
+                <button type="button" class="btn btn-secondary" onclick="toggleForm()">Cancel</button>
+            </div>
         </form>
     <% } else { %>
         <p class="text-center text-danger">Driver profile not found.</p>
@@ -93,6 +73,20 @@
 </div>
 
 <%@ include file="footer.jsp" %>
+
+<script>
+    function toggleForm() {
+        const form = document.getElementById('updateForm');
+        const details = document.getElementById('profileDetails');
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+            details.style.display = 'none';
+        } else {
+            form.style.display = 'none';
+            details.style.display = 'block';
+        }
+    }
+</script>
 
 </body>
 </html>

@@ -18,9 +18,8 @@
     <!-- Font Awesome for professional icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
+<body class="bg-light text-dark">
 <%@ include file="header.jsp" %>
-
 
 <div class="dashboard-container">
     <div class="dashboard-header">
@@ -42,7 +41,7 @@
             <div class="icon"><i class="fas fa-list-alt"></i></div>
             <h3>View Bookings</h3>
             <p>Check, edit, or cancel your existing bookings.</p>
-            <a href="viewBookings.jsp" class="btn btn-secondary">Manage Bookings</a>
+            <a href="viewBookings.jsp" class="btn btn-info">Manage Bookings</a>
         </div>
 
         <!-- Billing -->
@@ -58,7 +57,7 @@
             <div class="icon"><i class="fas fa-receipt"></i></div>
             <h3>Payment History</h3>
             <p>View your past payment records and invoices.</p>
-            <a href="paymentHistory.jsp" class="btn btn-info">View History</a>
+            <a href="paymentHistory.jsp" class="btn btn-warning">View History</a>
         </div>
 
         <!-- Booking History -->
@@ -66,9 +65,17 @@
             <div class="icon"><i class="fas fa-history"></i></div>
             <h3>Booking History</h3>
             <p>Track all your previous cab bookings.</p>
-            <a href="ConfirmedBookings.jsp" class="btn btn-warning">View Bookings</a>
+            <a href="ConfirmedBookings.jsp" class="btn btn-secondary">View Bookings</a>
         </div>
         
+        <!-- View Replies -->
+        <div class="dashboard-card">
+            <div class="icon"><i class="fas fa-comment-dots"></i></div>
+            <h3>View Replies</h3>
+            <p>Check replies to your customer inquiries.</p>
+            <a href="viewReplies.jsp" class="btn btn-info">View Replies</a>
+        </div>
+
     </div>
 </div>
 <%@ include file="footer.jsp" %>

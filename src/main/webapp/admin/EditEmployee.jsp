@@ -12,7 +12,6 @@
     }
 %>
 
-
 <%
     String employeeId = request.getParameter("id");
     EmployeeDAO dao = new EmployeeDAO();
@@ -33,11 +32,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Edit.css">
 </head>
-<body>
+<body class="bg-dark text-white">
 <%@ include file="header.jsp" %>
 
-    <div class="container">
-        <h2>Edit Employee</h2>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Edit Employee</h2>
         
         <form action="<%= request.getContextPath() %>/admin/EditEmployeeServlet" method="post">
             <div class="mb-3">
@@ -70,7 +69,6 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Update Employee</button>
-            <a href="EmployeeSection.jsp" class="btn btn-secondary">Back</a>
         </form>
     </div>
     <%@ include file="footer.jsp" %>

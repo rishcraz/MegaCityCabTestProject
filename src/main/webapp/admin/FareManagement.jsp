@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ page import="dao.admin.FareRateDAO, model.admin.FareRate, java.util.List" %>
 <%@ page session="true" %>
 <%
@@ -21,7 +21,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Fare Management</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Fare2.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Fare.css">
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -66,10 +66,7 @@
             <button type="submit">Add Fare Rate</button>
         </form>
 
-        <!-- View Rates Button -->
-        <div class="button-container">
-            <a href="FareRates.jsp" class="view-rates-btn">View Rates</a>
-        </div>
+       
     </div>
     <%@ include file="footer.jsp" %>
     

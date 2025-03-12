@@ -25,4 +25,9 @@ public class DBConnection {
         }
         return connection;
     }
+
+	public static void setMockConnection(Connection mockConnection) {
+		// TODO Auto-generated method stub
+		
+	}
 }

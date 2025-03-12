@@ -1,15 +1,106 @@
-body {
-    font-family: Arial, sans-serif;
-}
 
-.navbar-brand {
-    font-size: 1.5rem;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
 
-h1 {
-    font-size: 2.5rem;
-}
+        /* Navbar */
+        .navbar {
+            background: #212529;
+            padding: 10px 0;
+        }
 
-section {
-    margin-bottom: 50px;
-}
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .white-text {
+            color: #ffffff;
+        }
+
+        .yellow-text {
+            color: #FFA500;
+        }
+
+        .nav-item a {
+            color: #ffffff !important;
+            font-size: 1rem;
+        }
+
+        .nav-item a:hover {
+            color: #FFA500 !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #FFA500;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+
+        .orange-shape {
+            background: #FFA500;
+            padding: 40px;
+            border-radius: 20px;
+            display: inline-block;
+            clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 90%);
+        }
+
+        .car-image {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        /* Booking Form */
+        .booking-section {
+            background: #212529;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 60px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #FFA500;
+        }
+
+        .btn-custom {
+            background: #212529;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .btn-custom:hover {
+            background: #FFA500;
+            color: #212529;
+        }
+
+        .btn-search {
+            background: #FFA500;
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .btn-search:hover {
+            background: #212529;
+            color: #ffffff;
+        }
+    

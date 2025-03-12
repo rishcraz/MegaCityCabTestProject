@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ page import="dao.customer.BookingDAO" %>
 <%@ page import="model.customer.Booking" %>
 <%@ page import="java.util.List" %>
@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/customer/EditBooking.css">
 </head>
-<body>
+<body class="bg-light text-dark">
 <%@ include file="header.jsp" %>
     <div class="container mt-5">
-        <div class="card shadow-lg p-4">
-            <h2 class="mb-4 text-center">Edit Booking</h2>
+        <div class="card shadow-lg p-4 bg-white text-dark">
+            <h2 class="mb-4 text-center text-black">Edit Booking</h2>
             <%
                 String orderNumber = request.getParameter("orderNumber");
                 BookingDAO bookingDAO = new BookingDAO();
@@ -52,22 +52,20 @@
                 <div class="mb-3">
                     <label class="form-label">Car Type:</label>
                     <select name="carType" class="form-select" required>
-                        <option value="Standard" <% if(booking.getCarType().equals("Standard")) out.print("selected"); %>>Standard</option>
+                        <option value="Hatchback" <% if(booking.getCarType().equals("Hatchback")) out.print("selected"); %>>Hatchback</option>
                         <option value="Luxury" <% if(booking.getCarType().equals("Luxury")) out.print("selected"); %>>Luxury</option>
                         <option value="SUV" <% if(booking.getCarType().equals("SUV")) out.print("selected"); %>>SUV</option>
                     </select>
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Update Booking</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
 
-            <div class="text-center mt-3">
-                <a href="viewBookings.jsp" class="btn btn-secondary">⬅ Back to View Bookings</a>
-            </div>
+          
         </div>
     </div>
-     <%@ include file="footer.jsp" %>
+    <%@ include file="footer.jsp" %>
 </body>
 </html>

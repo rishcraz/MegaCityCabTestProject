@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MegaCityCab - Comfort & Reliability</title>
+        <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/welcome.css">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS for Professional Look -->
-    <style>
-        body {
+<style>
+ body {
             font-family: 'Poppins', sans-serif;
-            background: #f8f9fa;
+            background: #121212;
+            color: #ffffff;
             margin: 0;
             padding: 0;
         }
@@ -58,12 +58,12 @@
         .hero-text h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            color: #212529;
+            color: #FFA500;
         }
 
         .hero-text p {
             font-size: 1.1rem;
-            color: #6c757d;
+            color: #cccccc;
         }
 
         .orange-shape {
@@ -81,16 +81,16 @@
 
         /* Booking Form */
         .booking-section {
-            background: #ffffff;
+            background: #212529;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             margin-top: 60px;
         }
 
         .form-label {
             font-weight: 600;
-            color: #212529;
+            color: #FFA500;
         }
 
         .btn-custom {
@@ -114,7 +114,8 @@
             background: #212529;
             color: #ffffff;
         }
-    </style>
+</style>
+    
 </head>
 <body>
 
@@ -174,10 +175,9 @@
             <label for="return" class="form-label">Return</label>
             <input type="date" class="form-control" id="return" placeholder="mm/dd/yyyy" required>
         </div>
-       <div class="col-12 d-flex justify-content-center">
-    <a href="<%= request.getContextPath() %>/register.jsp" class="btn btn-search px-5">Search Rides</a>
-</div>
-
+        <div class="col-12 d-flex justify-content-center">
+            <a href="<%= request.getContextPath() %>/register.jsp" class="btn btn-search px-5">Search Rides</a>
+        </div>
     </form>
 </section>
 

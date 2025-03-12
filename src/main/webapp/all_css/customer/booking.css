@@ -6,46 +6,59 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Full Page Layout */
+/* Body & Layout */
 body {
-    background-color: #f8f9fa;
+   background: linear-gradient(135deg, #eaf6ff, #d0eaff);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: auto;
+    color: #333;
 }
 
-/* Header and Footer Containers */
+/* Header & Footer */
 .header-container, .footer-container {
     width: 100%;
 }
 
-/* Container */
-.container {
+/* Booking Section */
+.booking-section {
+    max-width: 600px;
     width: 100%;
-    max-width: 500px;
-    background: white;
+    margin: 50px auto;
+    background-color: #f2f8ff;
     padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 30px auto; /* Centers the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
 /* Form Styling */
-form {
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
     display: flex;
     flex-direction: column;
 }
 
-/* Labels */
 label {
     font-weight: bold;
-    margin-bottom: 6px;
-    color: #333;
+    margin-bottom: 8px;
+    color: #2c3e50;
 }
 
-/* Input Fields */
 input, select {
     width: 100%;
     padding: 10px;
@@ -56,26 +69,15 @@ input, select {
     transition: border 0.3s;
 }
 
-/* Readonly Fields */
 input[readonly] {
     background-color: #e9ecef;
     cursor: not-allowed;
 }
 
-/* Map Styling */
-#map {
-    height: 350px;
-    width: 100%;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-
-/* Submit Button */
 button {
-    background-color: #007bff;
+    background-color: #28a745;
     color: white;
-    padding: 12px;
+    padding: 14px;
     font-size: 18px;
     font-weight: bold;
     border: none;
@@ -85,39 +87,25 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #218838;
 }
 
-/* Styling for Book Your Cab heading */
-h2 {
-    font-size: 26px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.megacity {
-    color: #14213D; /* Default text color */
-}
-
-.city {
-    color: #FCA311; /* Yellow */
-}
-
-.cab {
-    color: #14213D; /* Default text color */
+/* Map Container */
+.map-container {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 /* Responsive Design */
-
-/* Medium Screens (Tablets) */
 @media (max-width: 768px) {
-    .container {
-        width: 90%;
+    .booking-section {
         padding: 20px;
     }
 
-    h2 {
+    .title {
         font-size: 24px;
     }
 
@@ -126,20 +114,17 @@ h2 {
         padding: 8px;
     }
 
-    #map {
-        height: 300px;
+    .map-container {
+        height: 250px;
     }
 }
 
-/* Small Screens (Mobile Phones) */
 @media (max-width: 480px) {
-    .container {
-        width: 95%;
+    .booking-section {
         padding: 15px;
-        margin: 20px auto;
     }
 
-    h2 {
+    .title {
         font-size: 22px;
     }
 
@@ -148,8 +133,8 @@ h2 {
         padding: 8px;
     }
 
-    #map {
-        height: 250px;
+    .map-container {
+        height: 220px;
     }
 
     button {

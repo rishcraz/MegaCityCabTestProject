@@ -41,14 +41,6 @@ public class BillingDAO {
 
 	
 	
-	
-	
-	
-	
-	
-	
-	
-
 	public List<Billing> getPendingBills() {
 	    List<Billing> pendingBills = new ArrayList<>();
 	    String sql = "SELECT b.order_number, bk.customer_name, bk.pickup_location, bk.destination, " +

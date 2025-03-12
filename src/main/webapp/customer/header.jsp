@@ -12,7 +12,7 @@
     <header class="header">
         <!-- Logo & Branding -->
         <div class="logo-container">
-            <img src="<%= request.getContextPath() %>/component/pictures/car6.png" alt="MegaCityCab Logo" class="logo">
+            <img src="<%= request.getContextPath() %>/component/pictures/red.png" alt="MegaCityCab Logo" class="logo">
             <h1 class="brand-name">Mega<span class="yellow-text">City</span>Cab</h1>
         </div>
 

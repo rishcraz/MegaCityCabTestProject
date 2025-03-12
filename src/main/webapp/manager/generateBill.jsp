@@ -1,13 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="dao.customer.BillingDAO, dao.admin.FareRateDAO, dao.customer.BookingDAO, model.admin.FareRate, model.customer.Billing, model.customer.Booking, java.util.List" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="java.time.LocalDateTime, java.time.format.DateTimeFormatter" %>
 
 <%
-    HttpSession sessionObj = request.getSession(false); // Don't create a new session if none exists
+    HttpSession sessionObj = request.getSession(false);
     String managerId = (sessionObj != null) ? (String) sessionObj.getAttribute("managerId") : null;
 
     if (managerId == null) {
-        response.sendRedirect(request.getContextPath() + "/login.jsp"); // Redirect to login if not logged in
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
         return;
     }
 %>
@@ -18,24 +19,29 @@
     <meta charset="UTF-8">
     <title>Generate Bill - Manager</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/manager/generateBill.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/manager/Bill.css">
 </head>
-<body>
+<body style="background: #121212; color: #f5f5f5;">
 
 <%@ include file="header.jsp" %>
 
 <div class="main-content">
     <div class="container">
-        <h2 class="text-center">Generate Customer Bill</h2>
+        <h2 class="text-center text-warning mb-4">Generate bill for the Bookings</h2>
 
-        <!-- Search Form -->
-        <form method="get" action="generateBill.jsp" class="search-form">
-            <div class="mb-3">
-                <label for="orderNumber" class="form-label">Enter Order Number:</label>
-                <input type="text" class="form-control" name="orderNumber" required>
+        <!-- Search Section -->
+        <div class="card shadow-lg" style="background: #1f1f1f; color: #e0e0e0;">
+            <div class="card-body">
+                <h5 class="card-title text-info">Search by Order Number</h5>
+                <form method="get" action="generateBill.jsp">
+                    <div class="mb-3">
+                        <label for="orderNumber" class="form-label">Enter Order Number:</label>
+                        <input type="text" class="form-control bg-dark text-light" name="orderNumber" required>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info w-100">Search Booking</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Search Booking</button>
-        </form>
+        </div>
 
         <%
             String orderNumber = request.getParameter("orderNumber");
@@ -46,48 +52,70 @@
                 booking = bookingDAO.getBookingByOrderNumber(orderNumber);
 
                 if (booking != null) {
+                    LocalDateTime pickupDateTime = booking.getPickupDateTime();
+                    String formattedDateTime = pickupDateTime.format(DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm a"));
         %>
 
-        <!-- Booking Details -->
-        <div class="booking-details mt-4">
-            <h4>Booking Details</h4>
-            <table class="table table-striped table-bordered">
-                <tr><th>Order Number</th><td><%= booking.getOrderNumber() %></td></tr>
-                <tr><th>Customer Name</th><td><%= booking.getCustomerName() %></td></tr>
-                <tr><th>Pickup Location</th><td><%= booking.getPickupLocation() %></td></tr>
-                <tr><th>Destination</th><td><%= booking.getDestination() %></td></tr>
-                <tr><th>Distance</th><td><%= booking.getDistance() %> km</td></tr>
-                <tr><th>Date/Time</th><td><%= booking.getPickupDateTime() %></td></tr>
-                <tr><th>Car Type</th><td><%= booking.getCarType() %></td></tr>
-            </table>
-
-            <!-- Generate Bill Form -->
-            <form method="post" action="GenerateBillServlet" class="generate-bill-form">
-                <input type="hidden" name="orderNumber" value="<%= booking.getOrderNumber() %>">
-
-                <div class="mb-3">
-                    <label for="fareId" class="form-label">Select Fare ID:</label>
-                    <select class="form-control" name="fareId" required>
-                        <%
-                            FareRateDAO fareRateDAO = new FareRateDAO();
-                            List<FareRate> fareRates = fareRateDAO.getAllFareRates();
-                            for (FareRate fare : fareRates) {
-                        %>
-                        <option value="<%= fare.getId() %>">
-                            <%= fare.getCarType() %> - Base: $<%= fare.getBaseFare() %>, Per Km: $<%= fare.getPerKmRate() %>
-                        </option>
-                        <% } %>
-                    </select>
+        <!-- Booking Details in Card Layout -->
+        <div class="card shadow-lg mt-4" style="background: #1f1f1f; color: #e0e0e0;">
+            <div class="card-body">
+                <h5 class="card-title text-info">Booking Details</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Order Number:</strong> <span class="text-warning"><%= booking.getOrderNumber() %></span></p>
+                        <p><strong>Customer Name:</strong> <%= booking.getCustomerName() %></p>
+                        <p><strong>Pickup Location:</strong> <%= booking.getPickupLocation() %></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Destination:</strong> <%= booking.getDestination() %></p>
+                        <p><strong>Distance:</strong> <%= booking.getDistance() %> km</p>
+                        <p><strong>Date/Time:</strong> <%= formattedDateTime %></p>
+                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-success">Generate Bill</button>
-            </form>
+                <!-- Generate Bill Button -->
+                <button class="btn btn-outline-success w-100 mt-3" data-bs-toggle="modal" data-bs-target="#generateBillModal">
+                    Generate Bill
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal for Bill Generation -->
+        <div class="modal fade" id="generateBillModal" tabindex="-1" aria-labelledby="generateBillModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background: #222; color: #e0e0e0;">
+                    <div class="modal-header border-bottom">
+                        <h5 class="modal-title text-warning" id="generateBillModalLabel">Generate Bill</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="GenerateBillServlet">
+                            <input type="hidden" name="orderNumber" value="<%= booking.getOrderNumber() %>">
+                            <div class="mb-3">
+                                <label for="fareId" class="form-label">Select Fare ID:</label>
+                                <select class="form-control bg-dark text-light" name="fareId" required>
+                                    <%
+                                        FareRateDAO fareRateDAO = new FareRateDAO();
+                                        List<FareRate> fareRates = fareRateDAO.getAllFareRates();
+                                        for (FareRate fare : fareRates) {
+                                    %>
+                                    <option value="<%= fare.getId() %>">
+                                        <%= fare.getCarType() %> - Base: $<%= fare.getBaseFare() %>, Per Km: $<%= fare.getPerKmRate() %>
+                                    </option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-outline-success w-100">Confirm and Generate Bill</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <% 
                 } else { 
         %>
-            <p class="text-danger text-center">No booking found for Order Number: <%= orderNumber %></p>
+            <p class="text-danger text-center mt-4">No booking found for Order Number: <%= orderNumber %></p>
         <%
                 }
             }
@@ -96,6 +124,8 @@
 </div>
 
 <%@ include file="footer.jsp" %>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

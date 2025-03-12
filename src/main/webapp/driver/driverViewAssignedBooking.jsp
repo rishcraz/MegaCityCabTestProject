@@ -27,6 +27,45 @@
     <meta charset="UTF-8">
     <title>My Assigned Bookings</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/driver/View.css">
+
+    <!-- JavaScript to handle button visibility and modal functionality -->
+    <script type="text/javascript">
+        function handleAcceptClick(orderNumber) {
+            // Hide 'Decline' button
+            document.getElementById('decline-btn-' + orderNumber).style.display = 'none';
+            // Show 'Complete' button
+            document.getElementById('complete-btn-' + orderNumber).style.display = 'inline-block';
+            // Optionally, disable the Accept button after it's clicked
+            document.getElementById('accept-btn-' + orderNumber).disabled = true;
+        }
+
+        function handleDeclineClick(orderNumber) {
+            // Hide 'Accept' button permanently when 'Decline' is clicked
+            document.getElementById('accept-btn-' + orderNumber).style.display = 'none';
+            // Optionally, disable the Decline button after it's clicked
+            document.getElementById('decline-btn-' + orderNumber).disabled = true;
+        }
+
+        function handleCompleteClick(orderNumber) {
+            // Hide 'Accept' and 'Decline' buttons when the ride is completed
+            document.getElementById('accept-btn-' + orderNumber).style.display = 'none';
+            document.getElementById('decline-btn-' + orderNumber).style.display = 'none';
+            
+            // Show payment buttons when ride is completed
+            document.getElementById('payment-method-' + orderNumber).style.display = 'block';
+
+            // Disable the 'Ride Completed' button
+            document.getElementById('complete-btn-' + orderNumber).disabled = true;
+        }
+
+
+        function showLocationAndDestination(orderNumber) {
+            // Trigger modal to show the location and destination using Bootstrap's modal API
+            var myModal = new bootstrap.Modal(document.getElementById('locationDestinationModal-' + orderNumber));
+            myModal.show();
+        }
+    </script>
 </head>
 <body>
 
@@ -50,63 +89,72 @@
     <%
         } else {
     %>
-        <table class="table table-striped table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>Order Number</th>
-                    <th>Customer Name</th>
-                    <th>Pickup Location</th>
-                    <th>Destination</th>
-                    <th>Pickup Date & Time</th>
-                    <th>Action</th>
-                    <th>Payment Method</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (Booking booking : assignedBookings) {
-                %>
-                    <tr>
-                        <td><%= booking.getOrderNumber() %></td>
-                        <td><%= booking.getCustomerName() %></td>
-                        <td><%= booking.getPickupLocation() %></td>
-                        <td><%= booking.getDestination() %></td>
-                        <td><%= booking.getPickupDateTime() != null ? booking.getPickupDateTime() : "N/A" %></td>
-                        <td>
-                            <form method="post" action="<%= request.getContextPath() %>/DriverResponseServlet" class="d-inline">
+        <div class="row">
+            <%
+                for (Booking booking : assignedBookings) {
+            %>
+            <div class="col-md-6 mb-4">
+                <div class="booking-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Order #: <%= booking.getOrderNumber() %></h5>
+                        <p><strong>Customer:</strong> <%= booking.getCustomerName() %></p>
+                        <p><strong>Pickup Time:</strong> <%= booking.getPickupDateTime() != null ? booking.getPickupDateTime() : "N/A" %></p>
+
+                        <!-- Click Here to Show Location and Destination in Modal -->
+                        <button type="button" class="btn btn-info btn-sm" onclick="showLocationAndDestination('<%= booking.getOrderNumber() %>')">Click Here</button>
+
+                        <form method="post" action="<%= request.getContextPath() %>/DriverResponseServlet">
+                            <input type="hidden" name="orderNumber" value="<%= booking.getOrderNumber() %>">
+                            <input type="hidden" name="driverId" value="<%= driverId %>">
+                            <!-- Accept Button -->
+                            <button type="submit" name="action" value="accept" id="accept-btn-<%= booking.getOrderNumber() %>" class="btn btn-success btn-sm" onclick="handleAcceptClick('<%= booking.getOrderNumber() %>')">Accept</button>
+                            <!-- Decline Button -->
+                            <button type="submit" name="action" value="decline" id="decline-btn-<%= booking.getOrderNumber() %>" class="btn btn-danger btn-sm" onclick="handleDeclineClick('<%= booking.getOrderNumber() %>')">Decline</button>
+                            <!-- Complete Button (Initially Hidden) -->
+                            <button type="submit" name="action" value="completed" id="complete-btn-<%= booking.getOrderNumber() %>" class="btn btn-warning btn-sm" style="display:none;" onclick="handleCompleteClick('<%= booking.getOrderNumber() %>')">Ride Completed</button>
+                        </form>
+
+                        <!-- Payment Method Buttons (Initially Hidden) -->
+                        <div id="payment-method-<%= booking.getOrderNumber() %>" class="payment-method" style="display:none;">
+                            <form method="post" action="<%= request.getContextPath() %>/PaymentServlet">
                                 <input type="hidden" name="orderNumber" value="<%= booking.getOrderNumber() %>">
                                 <input type="hidden" name="driverId" value="<%= driverId %>">
-                                <button type="submit" name="action" value="accept" class="btn btn-success btn-sm">Accept</button>
-                                <button type="submit" name="action" value="decline" class="btn btn-danger btn-sm">Decline</button>
-                                <button type="submit" name="action" value="completed" class="btn btn-warning btn-sm">Ride Completed</button>
+                                <button type="submit" name="paymentMethod" value="Cash" class="btn btn-outline-success btn-sm">Cash</button>
+                                <button type="submit" name="paymentMethod" value="Card" class="btn btn-outline-primary btn-sm">Card</button>
                             </form>
-                        </td>
-                        <td>
-                            <% if ("Completed".equals(booking.getDriverResponse())) { %>
-                                <form method="post" action="<%= request.getContextPath() %>/PaymentServlet" class="d-inline">
-                                    <input type="hidden" name="orderNumber" value="<%= booking.getOrderNumber() %>">
-                                    <input type="hidden" name="driverId" value="<%= driverId %>">
-                                    <button type="submit" name="paymentMethod" value="Cash" class="btn btn-outline-success btn-sm">Cash</button>
-                                    <button type="submit" name="paymentMethod" value="Card" class="btn btn-outline-primary btn-sm">Card</button>
-                                </form>
-                            <% } else { %>
-                                <span class="text-muted">Complete ride first</span>
-                            <% } %>
-                        </td>
-                    </tr>
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
-    <%
-        }
-    %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Location and Destination -->
+            <div class="modal fade" id="locationDestinationModal-<%= booking.getOrderNumber() %>" tabindex="-1" aria-labelledby="locationDestinationModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="locationDestinationModalLabel">Booking Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Pickup Location:</strong> <%= booking.getPickupLocation() %></p>
+                            <p><strong>Destination:</strong> <%= booking.getDestination() %></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%
+                }
+            %>
+        </div>
+    <% } %>
 </div>
 
 <!-- Update Availability Status Form -->
 <div class="container mt-5">
-    <h3 class="text-center mb-4">Update Availability Status</h3>
+    <h3 class="text-center mb-4">Update Status</h3>
     <form method="post" action="<%= request.getContextPath() %>/UpdateDriverStatusServlet">
         <input type="hidden" name="driverId" value="<%= driverId %>">
         <div class="mb-3">
@@ -122,6 +170,9 @@
 </div>
 
 <%@ include file="footer.jsp" %>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

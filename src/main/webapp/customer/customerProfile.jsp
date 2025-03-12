@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>  
 <%@ page import="model.User" %>
 <%@ page import="dao.UserDAO" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
@@ -22,31 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .profile-card {
-            max-width: 600px;
-            margin: 50px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .card-header {
-            background: #007bff;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        .card-body {
-            padding: 30px;
-        }
-        .edit-btn {
-            display: block;
-            width: 100%;
-        }
-        .hidden-form {
-            display: none;
-        }
-    </style>
+ <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/customer/profile.css">
 </head>
 <body>
 <%

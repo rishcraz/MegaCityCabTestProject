@@ -14,9 +14,6 @@
     }
 %>
 
-
-
-
 <%
     BookingDAO bookingDAO = new BookingDAO();
 
@@ -33,6 +30,7 @@
     <meta charset="UTF-8">
     <title>Driver Responses & Availability</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/manager/Response.css">
 </head>
 <body>
 
@@ -41,97 +39,65 @@
 <div class="container mt-5">
     <h2 class="text-center mb-4">Driver Responses</h2>
 
-    <%
-        if (driverResponses.isEmpty()) {
-    %>
-        <p class="text-center text-danger">No responses yet.</p>
-    <%
-        } else {
-    %>
-        <table class="table table-striped table-bordered">
-    <thead class="table-dark">
-        <tr>
-            <th>Order Number</th>
-            <th>Driver ID</th>
-            <th>Driver Name</th>
-            <th>Response</th>
-            <th>Payment Method</th>
-        </tr>
-    </thead>
-    <tbody>
-        <%
-            for (Booking booking : driverResponses) {
+    <div class="row">
+        <% 
+            if (driverResponses.isEmpty()) { 
         %>
-            <tr>
-                <td><%= booking.getOrderNumber() %></td>
-                <td><%= booking.getDriverId() %></td>
-                <td><%= booking.getDriverName() %></td>
-                <td><%= booking.getDriverResponse() != null ? booking.getDriverResponse() : "Pending" %></td>
-                <td>
-                    <%
-                        if ("Completed".equals(booking.getDriverResponse())) {
-                            if ("Cash".equals(booking.getPaymentMethod())) {
-                                out.print("Cashed Out");
-                            } else if ("Card".equals(booking.getPaymentMethod())) {
-                                out.print("Online Pay");
-                            } else {
-                                out.print("Payment Not Recorded");
-                            }
-                        } else {
-                            out.print("-");
-                        }
-                    %>
-                </td>
-            </tr>
+            <p class="text-center text-danger">No responses yet.</p>
         <%
-            }
+            } else {
+                for (Booking booking : driverResponses) { 
         %>
-    </tbody>
-</table>
-
-    <%
-        }
-    %>
+        <div class="col-md-4">
+            <div class="card mb-4" style="background-color: #333; color: #fff;">
+                <div class="card-body">
+                    <h5 class="card-title">Order Number: <%= booking.getOrderNumber() %></h5>
+                    <p><strong>Driver:</strong> <%= booking.getDriverName() %> (ID: <%= booking.getDriverId() %>)</p>
+                    <p><strong>Response:</strong> <%= booking.getDriverResponse() != null ? booking.getDriverResponse() : "Pending" %></p>
+                    <p><strong>Payment Method:</strong> 
+                        <%= booking.getDriverResponse() != null && "Accepted".equals(booking.getDriverResponse()) ?
+                               ("Cash".equals(booking.getPaymentMethod()) ? "Cashed Out" : "Online Pay") :
+                               "Not Available" %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <% 
+                } 
+            } 
+        %>
+    </div>
 </div>
 
 <div class="container mt-5">
     <h2 class="text-center mb-4">Driver Availability Status</h2>
 
-    <%
-        if (driverAvailability.isEmpty()) {
-    %>
-        <p class="text-center text-warning">No drivers available.</p>
-    <%
-        } else {
-    %>
-        <table class="table table-striped table-bordered">
-            <thead class="table-primary">
-                <tr>
-                    <th>Employee ID</th>
-                    <th>Driver Name</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (Booking booking : driverAvailability) {
-                %>
-                    <tr>
-                        <td><%= booking.getDriverId() %></td>
-                        <td><%= booking.getDriverName() %></td>
-                        <td><%= booking.getDriverEmail() %></td>
-                        <td><%= booking.getDriverStatus() != null ? booking.getDriverStatus() : "N/A" %></td>
-                    </tr>
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
-    <%
-        }
-    %>
+    <div class="row">
+        <% 
+            if (driverAvailability.isEmpty()) { 
+        %>
+            <p class="text-center text-warning">No drivers available.</p>
+        <%
+            } else {
+                for (Booking booking : driverAvailability) { 
+        %>
+        <div class="col-md-4">
+            <div class="card mb-4" style="background-color: #444; color: #fff;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= booking.getDriverName() %> (ID: <%= booking.getDriverId() %>)</h5>
+                    <p><strong>Email:</strong> <%= booking.getDriverEmail() %></p>
+                    <p><strong>Status:</strong> <%= booking.getDriverStatus() != null ? booking.getDriverStatus() : "N/A" %></p>
+                </div>
+            </div>
+        </div>
+        <% 
+                } 
+            } 
+        %>
+    </div>
 </div>
+
 <%@ include file="footer.jsp" %>
+
 </body>
 </html>

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<%@ page import="dao.customer.BillingDAO, model.customer.Billing, java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dao.customer.BillingDAO, model.customer.Billing" %>
 <%
     HttpSession userSession = request.getSession(false);
     String userId = (userSession != null) ? (String) userSession.getAttribute("userId") : null;
 
     if (userId == null) {
-        response.sendRedirect(request.getContextPath() + "/login.jsp"); // Redirect to login if not logged in
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
         return;
     }
 %>
@@ -19,56 +19,60 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-    <div class="container mt-5">
-        <h2 class="text-center">Billing Section</h2>
-        
+
+<div class="billing-container">
+    <h2>Billing Section</h2>
+
+    <div class="input-section">
         <form method="post" action="RequestBillServlet">
-            <div class="mb-3">
-                <label for="orderNumber" class="form-label">Enter Order Number:</label>
-                <input type="text" class="form-control" name="orderNumber" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Request Bill</button>
+            <label for="orderNumber">Enter Order Number:</label>
+            <input type="text" id="orderNumber" name="orderNumber" placeholder="Order Number" required>
+            <button type="submit">Request Bill</button>
         </form>
-
-        <% 
-            String orderNumber = request.getParameter("orderNumber");
-            if (orderNumber != null) {
-                BillingDAO billingDAO = new BillingDAO();
-                Billing bill = billingDAO.getBillByOrder(orderNumber);
-                if (bill != null) {
-        %>
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h5 class="card-title">Billing Details</h5>
-                    <p><strong>Order Number:</strong> <%= bill.getOrderNumber() %></p>
-                    <p><strong>Customer Name:</strong> <%= bill.getCustomerName() %></p>
-                    <p><strong>Pickup Location:</strong> <%= bill.getPickupLocation() %></p>
-                    <p><strong>Destination:</strong> <%= bill.getDestination() %></p>
-                    <p><strong>Total Fare:</strong> $<%= bill.getTotalFare() %></p>
-                    <p><strong>Tax Amount:</strong> $<%= bill.getTaxAmount() %></p>
-                    <p><strong>Discount:</strong> -$<%= bill.getDiscountAmount() %></p>
-                    <p><strong>Final Amount:</strong> <strong>$<%= bill.getFinalAmount() %></strong></p>
-                    <p><strong>Status:</strong> <%= bill.getPaymentStatus() %></p>
-
-                    <% if ("Pending Payment".equals(bill.getPaymentStatus())) { %>
-                        <form action="ConfirmPaymentServlet" method="post">
-                            <input type="hidden" name="orderNumber" value="<%= bill.getOrderNumber() %>">
-                            <label>Select Payment Method:</label><br>
-                            <input type="radio" name="paymentMethod" value="Cash" required> Cash
-                            <input type="radio" name="paymentMethod" value="Card" required> Card
-                            <button type="submit" class="btn btn-success mt-2">Make Payment</button>
-                        </form>
-                    <% } else if ("Paid".equals(bill.getPaymentStatus())) { %>
-                        <a href="DownloadBillServlet?orderNumber=<%= bill.getOrderNumber() %>" class="btn btn-info">Download PDF</a>
-                    <% } else if ("Awaiting Manager Approval".equals(bill.getPaymentStatus())) { %>
-                        <p class="text-danger">Waiting for Manager Approval</p>
-                    <% } %>
-                </div>
-            </div>
-        <% } else { %>
-            <p class="text-danger mt-3">No bill found for this order number.</p>
-        <% } } %>
     </div>
-    <%@ include file="footer.jsp" %>
+
+    <%
+        String orderNumber = request.getParameter("orderNumber");
+        if (orderNumber != null) {
+            BillingDAO billingDAO = new BillingDAO();
+            Billing bill = billingDAO.getBillByOrder(orderNumber);
+            if (bill != null) {
+    %>
+    <div class="billing-details">
+        <h3>Billing Details</h3>
+        <ul>
+            <li><strong>Order Number:</strong> <%= bill.getOrderNumber() %></li>
+            <li><strong>Customer Name:</strong> <%= bill.getCustomerName() %></li>
+            <li><strong>Pickup Location:</strong> <%= bill.getPickupLocation() %></li>
+            <li><strong>Destination:</strong> <%= bill.getDestination() %></li>
+            <li><strong>Total Fare:</strong> Rs <%= bill.getTotalFare() %></li>
+            <li><strong>Tax Amount:</strong> Rs <%= bill.getTaxAmount() %></li>
+            <li><strong>Discount:</strong> -Rs <%= bill.getDiscountAmount() %></li>
+            <li><strong>Final Amount:</strong> Rs <%= bill.getFinalAmount() %></li>
+            <li><strong>Status:</strong> <%= bill.getPaymentStatus() %></li>
+        </ul>
+
+        <% if ("Pending Payment".equals(bill.getPaymentStatus())) { %>
+        <div class="payment-section">
+            <form action="ConfirmPaymentServlet" method="post">
+                <input type="hidden" name="orderNumber" value="<%= bill.getOrderNumber() %>">
+                <label>Select Payment Method:</label>
+                <label><input type="radio" name="paymentMethod" value="Cash" required> Cash</label>
+                <label><input type="radio" name="paymentMethod" value="Card" required> Card</label>
+                <button type="submit">Make Payment</button>
+            </form>
+        </div>
+        <% } else if ("Paid".equals(bill.getPaymentStatus())) { %>
+        <a href="DownloadBillServlet?orderNumber=<%= bill.getOrderNumber() %>" class="download-btn">Download PDF</a>
+        <% } else if ("Awaiting Manager Approval".equals(bill.getPaymentStatus())) { %>
+        <p class="waiting-approval">Waiting for Manager Approval</p>
+        <% } %>
+    </div>
+    <% } else { %>
+    <p class="error-message">No bill found for this order number.</p>
+    <% } } %>
+</div>
+
+<%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -24,49 +24,68 @@
     <meta charset="UTF-8">
     <title>Car Management</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/car.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Car.css">
 </head>
-<body>
+<body class="bg-dark text-light">
 <%@ include file="header.jsp" %>
-    <div class="dashboard-container">
-        <h1>Car Management</h1>
 
-        <form action="AddCarServlet" method="post">
-            <input type="text" name="model" placeholder="Car Model" required>
-            <input type="text" name="plateNumber" placeholder="Plate Number" required>
-            <select name="status">
-                <option value="Available">Available</option>
-                <option value="Unavailable">Unavailable</option>
-            </select>
-            <button type="submit">Add Car</button>
-        </form>
+    <div class="container mt-5">
+        <div class="card bg-secondary border-light rounded shadow-lg">
+            <div class="card-header text-center text-white">
+                <h1>Car Management</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-6 mx-auto">
+                        <form action="AddCarServlet" method="post">
+                            <div class="mb-3">
+                                <input type="text" name="model" placeholder="Car Model" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" name="plateNumber" placeholder="Plate Number" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <select name="status" class="form-select" required>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Add Car</button>
+                        </form>
+                    </div>
+                </div>
 
-        <table class="table table-striped table-bordered mt-3">
-            <thead class="table-primary">
-                <tr>
-                    <th>Car ID</th>
-                    <th>Model</th>
-                    <th>Plate Number</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (Car car : cars) { %>
-                <tr>
-                    <td><%= car.getCarID() %></td>
-                    <td><%= car.getModel() %></td>
-                    <td><%= car.getPlateNumber() %></td>
-                    <td><%= car.getStatus() %></td>
-                    <td>
-                        <a href="UpdateCar.jsp?id=<%= car.getCarID() %>" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="DeleteCarServlet?id=<%= car.getCarID() %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
-                    </td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
+                <div class="table-responsive mt-5">
+                    <table class="table table-dark table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Car ID</th>
+                                <th>Model</th>
+                                <th>Plate Number</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (Car car : cars) { %>
+                            <tr>
+                                <td><%= car.getCarID() %></td>
+                                <td><%= car.getModel() %></td>
+                                <td><%= car.getPlateNumber() %></td>
+                                <td><%= car.getStatus() %></td>
+                                <td>
+                                    <a href="UpdateCar.jsp?id=<%= car.getCarID() %>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="DeleteCarServlet?id=<%= car.getCarID() %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <%@ include file="footer.jsp" %>
+
+<%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -36,7 +36,16 @@ public class LoginServlet extends HttpServlet {
 
         // For non-admin users, continue with database authentication
         UserDAO userDAO = UserServiceFactory.getUserDAO();
-        User user = userDAO.loginUser(email, password);
+        User user = null;
+
+        try {
+            user = userDAO.loginUser(email, password);
+        } catch (IllegalStateException e) {
+            // Account is deactivated
+            request.setAttribute("error", e.getMessage());
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            return;
+        }
 
         if (user != null) {
             session.setAttribute("user", user);
@@ -47,15 +56,15 @@ public class LoginServlet extends HttpServlet {
             String redirectURL = request.getContextPath();
             switch (role) {
                 case "manager":
-                    session.setAttribute("managerId", user.getEmployeeId()); // Assuming user has employeeId
+                    session.setAttribute("managerId", user.getUserId());
                     redirectURL += "/manager/managerDashboard.jsp";
                     break;
                 case "driver":
-                    session.setAttribute("driverId", user.getEmployeeId()); // Assuming user has employeeId
+                    session.setAttribute("driverId", user.getUserId());
                     redirectURL += "/driver/driverDashboard.jsp";
                     break;
                 case "customer":
-                    session.setAttribute("userId", user.getUserId()); // Storing customer userId
+                    session.setAttribute("userId", user.getUserId());
                     redirectURL += "/customer/CustomerDashboard.jsp";
                     break;
                 default:

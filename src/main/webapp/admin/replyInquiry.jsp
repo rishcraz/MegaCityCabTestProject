@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>  
 <%@ page import="dao.customer.InquiryDAO" %>
 <%@ page import="model.customer.Inquiry" %>
 <%@ page session="true" %>
@@ -13,7 +13,6 @@
     }
 %>
 
-
 <%@ include file="header.jsp" %>
 
 <!DOCTYPE html>
@@ -22,8 +21,10 @@
     <meta charset="UTF-8">
     <title>Reply to Inquiry</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Inquiry.css">
 </head>
-<body>
+<body class="dark-theme">
+
 <%
     String inquiryId = request.getParameter("inquiryId");
     InquiryDAO inquiryDAO = new InquiryDAO();
@@ -31,14 +32,19 @@
 %>
 
 <div class="container mt-5">
-    <h2>Reply to Inquiry</h2>
-    <p><strong>From:</strong> <%= inquiry.getName() %> (<%= inquiry.getEmail() %>)</p>
-    <p><strong>Subject:</strong> <%= inquiry.getSubject() %></p>
-    <p><strong>Message:</strong> <%= inquiry.getMessage() %></p>
+
+    <h2 class="text-warning">Reply to Inquiry</h2>
+    <div class="card bg-dark text-light mb-4">
+        <div class="card-body">
+            <p><strong>From:</strong> <%= inquiry.getName() %> (<%= inquiry.getEmail() %>)</p>
+            <p><strong>Subject:</strong> <%= inquiry.getSubject() %></p>
+            <p><strong>Message:</strong> <%= inquiry.getMessage() %></p>
+        </div>
+    </div>
 
     <form action="SendReplyServlet" method="post">
         <input type="hidden" name="inquiryId" value="<%= inquiry.getInquiryId() %>">
-
+        
         <div class="mb-3">
             <label for="reply" class="form-label">Your Reply</label>
             <textarea class="form-control" id="reply" name="reply" rows="4" required></textarea>

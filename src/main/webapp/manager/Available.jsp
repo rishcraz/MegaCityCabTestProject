@@ -12,8 +12,6 @@
     }
 %>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,19 +19,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Cars</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/manager/availableCars.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/manager/Cars.css">
 </head>
-<body>
+<body class="bg-dark text-light">
 
 <%@ include file="header.jsp" %>
 
 <main class="main-content">
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Available Cars</h2>
+        <h2 class="text-center mb-4 text-primary">Available Cars</h2>
 
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover text-center">
-                <thead class="table-dark">
+                <thead class="bg-dark text-light">
                     <tr>
                         <th>Car ID</th>
                         <th>Model</th>

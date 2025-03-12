@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ page import="model.User"%>
 <%@ page import="dao.UserDAO"%>
@@ -19,17 +19,17 @@
     <meta charset="UTF-8">
     <title>View Accounts</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/accounts.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Useraccounts.css">
 </head>
-<body>
+<body class="bg-dark text-light">
 
 <%@ include file="header.jsp" %>
 
-<div class="main-content">
-    <div class="dashboard-container">
-        <h1 class="text-center">Customer Accounts</h1>
-        <table class="table table-striped table-bordered mt-3">
-            <thead class="table-primary">
+<div class="container mt-5">
+    <div class="dashboard-container bg-dark text-light">
+        <h1 class="text-center mb-4">Customer Accounts</h1>
+        <table class="table table-striped table-dark table-bordered">
+            <thead>
                 <tr>
                     <th>Customer ID</th>
                     <th>Full Name</th>

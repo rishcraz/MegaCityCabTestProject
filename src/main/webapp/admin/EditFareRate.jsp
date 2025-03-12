@@ -22,9 +22,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Fare Rate</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Fare.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/EditFare.css">
 </head>
 <body>
+<%@ include file="header.jsp" %>
     <div class="dashboard-container">
         <h1>Edit Fare Rate</h1>
         <form action="/admin/EditFareRateServlet" method="post" class="form-container">
@@ -57,10 +58,8 @@
             <button type="submit" class="btn">Update Fare</button>
         </form>
 
-        <!-- Go Back Button -->
-        <div class="button-container">
-            <a href="FareRates.jsp" class="go-back-btn">Go Back</a>
-        </div>
+    
     </div>
+    <%@ include file="footer.jsp" %>
 </body>
 </html>

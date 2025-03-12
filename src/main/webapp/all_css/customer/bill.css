@@ -1,8 +1,8 @@
 /* General Page Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: #f4f7fc;
-    color: #333;
+    background: linear-gradient(135deg, #eaf6ff, #d0eaff);
+    color: rgb(0, 0, 0); 
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,137 +10,172 @@ body {
     min-height: 100vh;
 }
 
-/* Billing Section */
-.container {
+/* Billing Container */
+.billing-container {
     max-width: 800px;
-    padding: 30px;
-    margin-top: 50px;
+    margin: 50px auto;
+    background: #ffff;/* Darker background for container */
+    padding: 40px;
     border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease-in-out;
-    flex-grow: 1;
+   
 }
 
 /* Header Styling */
 h2 {
     font-size: 28px;
     font-weight: bold;
-    color: #2c3e50;
+    color: rgb(0, 0, 0);
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 30px;
 }
 
-/* Form Styling */
-form {
-    
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+/* Input Section */
+.input-section {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Input Fields */
-.form-control {
+.input-section label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.input-section input[type="text"] {
+    width: 100%;
     padding: 12px;
     font-size: 16px;
-    border: 1px solid #ced4da;
+    border: 1px solid #4e5b75;
     border-radius: 8px;
-    transition: border 0.3s ease-in-out;
+    color: rgb(0, 0, 0);
+
 }
 
-.form-control:focus {
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-}
 
-/* Payment Method Radio Buttons */
-input[type="radio"] {
-    margin-right: 8px;
-    cursor: pointer;
-}
-
-/* Buttons */
-.btn {
+.input-section button {
+    background: #00b8d4; /* Light Blue */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
-    padding: 10px 16px;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    margin-top: 15px;
 }
 
-.btn-primary {
-    background: #007bff;
-    border: none;
-}
-
-.btn-primary:hover {
-    background: #0056b3;
+.input-section button:hover {
+    background: #008ba3; /* Darker Light Blue */
     transform: translateY(-2px);
-}
-
-.btn-success {
-    background: #28a745;
-    border: none;
-}
-
-.btn-success:hover {
-    background: #218838;
-    transform: translateY(-2px);
-}
-
-.btn-info {
-    background: #17a2b8;
-    border: none;
-}
-
-.btn-info:hover {
-    background: #138496;
-    transform: translateY(-2px);
-}
-
-/* Billing Card */
-.card {
-    border-radius: 12px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
-    background: #ffffff;
-}
-
-.card-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #2c3e50;
-    text-transform: uppercase;
-    margin-bottom: 15px;
 }
 
 /* Billing Details */
-.card p {
+.billing-details {
+    background: #2a2a3d; /* Dark background for details */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.billing-details h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.billing-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.billing-details li {
     font-size: 16px;
     margin-bottom: 10px;
+    color: #f4f4f4;
 }
 
-/* Payment Status */
-.text-danger {
+.billing-details strong {
+    color: #ffd700; /* Gold color for important text */
+}
+
+/* Payment Section */
+.payment-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.payment-section label {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #f4f4f4;
+    cursor: pointer;
+}
+
+.payment-section input[type="radio"] {
+    margin-right: 5px;
+}
+
+.payment-section button {
+    background: #e6b800; /* Gold */
+    color: #212529;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.payment-section button:hover {
+    background: #e6b800; /* Darker gold */
+    transform: translateY(-2px);
 }
 
-/* Responsive Adjustments */
+/* Download Button */
+.download-btn {
+    display: block;
+    text-align: center;
+    background: #17a2b8; /* Light Blue */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.download-btn:hover {
+    background: #138496; /* Darker Light Blue */
+    transform: translateY(-2px);
+}
+
+/* Status Messages */
+.waiting-approval {
+    text-align: center;
+    color: #e6b800; /* Gold */
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.error-message {
+    text-align: center;
+    color: #d9534f; /* Red */
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .container {
+    .billing-container {
         padding: 20px;
     }
 
@@ -148,16 +183,10 @@ input[type="radio"] {
         font-size: 24px;
     }
 
-    .form-control {
-        font-size: 14px;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    .card p {
+    .input-section input[type="text"],
+    .input-section button,
+    .payment-section button,
+    .download-btn {
         font-size: 14px;
     }
 }

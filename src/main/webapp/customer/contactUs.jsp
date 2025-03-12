@@ -21,13 +21,17 @@
     <title>Contact Us</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
+    body {
+    background: linear-gradient(135deg, #eaf6ff, #d0eaff);
+    font-family: Arial, sans-serif;
+}
         .contact-container {
             max-width: 600px;
             margin: 50px auto;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 30px;
             border-radius: 10px;
-            background: #f8f9fa;
+            background: #f2f8ff;
         }
     </style>
 </head>
@@ -80,7 +84,7 @@
         </form>
 
         <!-- New "View Replies" Button -->
-        <a href="viewReplies.jsp" class="btn btn-secondary w-100">View My Replies</a>
+
     </div>
 </div>
 

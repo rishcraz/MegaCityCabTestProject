@@ -22,7 +22,7 @@
 <%@ include file="header.jsp" %>
 
 <div class="container payment-history">
-    <h2 class="text-center">Your Payment History</h2>
+    <h2 class="text-center">Payment History</h2>
 
     <%
         BillingDAO billingDAO = new BillingDAO();
@@ -32,45 +32,30 @@
     <% if (paymentHistory.isEmpty()) { %>
         <div class="alert alert-danger text-center mt-4">No completed payments found.</div>
     <% } else { %>
-        <div class="table-responsive">
-            <table class="table table-hover custom-table">
-                <thead>
-                    <tr>
-                        <th>Order Number</th>
-                        <th>Total Fare</th>
-                        <th>Tax Amount</th>
-                        <th>Discount</th>
-                        <th>Final Amount</th>
-                        <th>Payment Method</th>
-                        <th>Payment Status</th>
-                        <th>Paid On</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for (Billing bill : paymentHistory) { %>
-                    <tr>
-                        <td><%= bill.getOrderNumber() %></td>
-                        <td>$<%= bill.getTotalFare() %></td>
-                        <td>$<%= bill.getTaxAmount() %></td>
-                        <td>-$<%= bill.getDiscountAmount() %></td>
-                        <td><strong>$<%= bill.getFinalAmount() %></strong></td>
-                        <td><%= bill.getPaymentMethod() %></td>
-                        <td><span class="badge bg-success"><%= bill.getPaymentStatus() %></span></td>
-                        <td><%= bill.getGeneratedAt() %></td>
-                        <td>
+        <div class="row">
+            <% for (Billing bill : paymentHistory) { %>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card payment-card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Order #<%= bill.getOrderNumber() %></h5>
+                            <p class="card-text"><strong>Total Fare:</strong> Rs <%= bill.getTotalFare() %></p>
+                            <p class="card-text"><strong>Tax Amount:</strong> Rs <%= bill.getTaxAmount() %></p>
+                            <p class="card-text"><strong>Discount:</strong> -Rs <%= bill.getDiscountAmount() %></p>
+                            <p class="card-text"><strong>Final Amount:</strong> Rs <%= bill.getFinalAmount() %></p>
+                            <p class="card-text"><strong>Payment Method:</strong> <%= bill.getPaymentMethod() %></p>
+                            <p class="card-text">
+                                <span class="badge bg-success"><%= bill.getPaymentStatus() %></span>
+                            </p>
+                            <p class="card-text"><strong>Paid On:</strong> <%= bill.getGeneratedAt() %></p>
                             <a href="DownloadBillServlet?orderNumber=<%= bill.getOrderNumber() %>" class="btn btn-download">Download PDF</a>
-                        </td>
-                    </tr>
-                    <% } %>
-                </tbody>
-            </table>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
         </div>
     <% } %>
 
-    <div class="text-center mt-4">
-        <a href="customerDashboard.jsp" class="btn btn-back">Back to Dashboard</a>
-    </div>
+    
 </div>
 
 <%@ include file="footer.jsp" %>

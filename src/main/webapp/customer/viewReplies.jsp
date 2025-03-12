@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>  
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>   
 <%@ page import="dao.customer.InquiryDAO" %>
 <%@ page import="model.customer.Inquiry" %>
 <%@ page import="java.util.List" %>
@@ -12,44 +12,9 @@
     <meta charset="UTF-8">
     <title>My Inquiries & Replies</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f4f7f6;
-        }
-
-        .inquiries-container {
-            max-width: 90%;
-            margin: 50px auto;
-        }
-
-        .table th {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-        }
-
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #f8f9fa;
-        }
-
-        .status-pending {
-            color: #ffc107;
-            font-weight: bold;
-        }
-
-        .status-replied {
-            color: #28a745;
-            font-weight: bold;
-        }
-
-        .no-replies {
-            color: #dc3545;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/customer/inquiries.css">
 </head>
 <body>
-<%-- Session check for customer --%>
 <%
     HttpSession sessionObj = request.getSession(false);
     String userId = (sessionObj != null) ? (String) sessionObj.getAttribute("userId") : null;
@@ -64,45 +29,41 @@
 %>
 
 <div class="inquiries-container">
-    <h2 class="text-center mb-4">My Inquiries & Replies</h2>
-
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Inquiry No</th>
-                    <th>Subject</th>
-                    <th>Message</th>
-                    <th>Status</th>
-                    <th>MegaCityCab</th>
-                </tr>
-            </thead>
-            <tbody>
-            <% if (inquiries.isEmpty()) { %>
-                <tr>
-                    <td colspan="6" class="text-center text-muted">No inquiries found.</td>
-                </tr>
-            <% } else { 
-                for (Inquiry inquiry : inquiries) { %>
-                <tr>
-                    <td class="text-center"><%= inquiry.getInquiryId() %></td>
-                    <td><%= inquiry.getSubject() %></td>
-                    <td><%= inquiry.getMessage() %></td>
-                    <td class="text-center">
-                        <% if ("Pending".equalsIgnoreCase(inquiry.getStatus())) { %>
-                            <span class="status-pending">Pending</span>
-                        <% } else { %>
-                            <span class="status-replied">Replied</span>
-                        <% } %>
-                    </td>
-                    <td>
-                        <%= (inquiry.getReply() != null && !inquiry.getReply().isEmpty()) ? inquiry.getReply() : "<span class='no-replies'>No reply yet</span>" %>
-                    </td>
-                </tr>
-            <% } } %>
-            </tbody>
-        </table>
+    <div class="header-section text-center">
+        <h2>My Inquiries & Replies</h2>
+        <p class="lead">Track your inquiries and view responses from MegaCityCab support.</p>
     </div>
+
+    <% if (inquiries.isEmpty()) { %>
+        <div class="alert alert-info text-center" role="alert">
+            You haven't made any inquiries yet.
+        </div>
+    <% } else { %>
+        <div class="inquiry-cards">
+            <% for (Inquiry inquiry : inquiries) { %>
+                <div class="inquiry-card">
+                    <div class="inquiry-header">
+                        <h5>Inquiry #<%= inquiry.getInquiryId() %></h5>
+                        <span class="badge <%= "Pending".equalsIgnoreCase(inquiry.getStatus()) ? "bg-warning text-dark" : "bg-success" %>">
+                            <%= inquiry.getStatus() %>
+                        </span>
+                    </div>
+                    <div class="inquiry-body">
+                        <p><strong>Subject:</strong> <%= inquiry.getSubject() %></p>
+                        <p><strong>Message:</strong> <%= inquiry.getMessage() %></p>
+                    </div>
+                    <div class="inquiry-reply">
+                        <h6>Response:</h6>
+                        <p>
+                            <%= (inquiry.getReply() != null && !inquiry.getReply().isEmpty()) ? 
+                                "<span class='text-success'>" + inquiry.getReply() + "</span>" : 
+                                "<span class='text-muted'>No reply yet</span>" %>
+                        </p>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
 </div>
 
 <%@ include file="footer.jsp" %>

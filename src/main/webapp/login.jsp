@@ -12,7 +12,7 @@
     <div class="auth-container">
         <div class="auth-box">
             <h2>Login to <span class="megacity">Mega</span><span class="city">City</span><span class="cab">Cab</span></h2>
-            <form action="login" method="post"> <!-- Corrected form action -->
+            <form action="login" method="post">
                 <div class="input-box">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter email" required>
@@ -24,8 +24,25 @@
                 <button type="submit" class="auth-btn">Login</button>
                 <p class="auth-text">Don't have an account? <a href="register.jsp">Sign up</a></p>
             </form>
-            
-            <!-- Social Login Buttons Below Sign Up -->
+
+            <c:if test="${not empty error}">
+                <div class="modal" id="errorModal" style="display: block;">
+                    <div class="modal-content">
+                        <p class="error-message show">${error}</p>
+                    </div>
+                </div>
+            </c:if>
+
+            <script>
+                function closeModal() {
+                    document.getElementById("errorModal").style.display = "none";
+                   
+                }
+                setTimeout(function() {
+                    document.getElementById("errorModal").style.display = "none";
+                }, 10000);
+            </script>
+
             <div class="login_option">
                 <div class="option">
                     <a href="#" class="google-btn">
@@ -42,4 +59,7 @@
             </div>
         </div>
     </div>
+
+
 </body>
+</html>

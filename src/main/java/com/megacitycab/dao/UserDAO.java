@@ -12,7 +12,17 @@ import java.util.List;
 
 public class UserDAO {
 
-    // Login Method (Checks both users and employees)
+
+
+
+	/*
+	 * public UserDAO(Connection mockConnection) { // TODO Auto-generated
+	 * constructor stub }
+	 */
+	
+
+
+	// Login Method (Checks both users and employees)
 	public User loginUser(String email, String password) { 
 	    User user = null;
 	    String query = "SELECT user_id, name, email, phone, nic, address, password_hash, role FROM users WHERE email = ? " +
@@ -30,10 +40,10 @@ public class UserDAO {
 	            String hashedPassword = rs.getString("password_hash");
 	            String role = rs.getString("role");
 
-	            // Check if account is deactivated
 	            if ("Deactivated".equalsIgnoreCase(role)) {
-	                throw new IllegalStateException("Your account has been deactivated. Please contact support.");
+	                throw new IllegalStateException("Your account has been deactivated. Please contact our customer portal.");
 	            }
+
 
 	            // Password check for hashed and plain passwords
 	            if (hashedPassword.startsWith("$2a$")) { 

@@ -15,13 +15,11 @@
     }
 %>
 
-
 <%
     String carID = request.getParameter("id");
     CarDAO carDAO = new CarDAO();
     Car car = carDAO.getCarById(carID);
 %>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,32 +27,48 @@
     <meta charset="UTF-8">
     <title>Update Car</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/update.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/all_css/admin/Carupdate.css">
 </head>
-<body>
+<body class="bg-dark text-light">
 <%@ include file="header.jsp" %>
-    <div class="dashboard-container">
-        <h1>Update Car</h1>
-        
-        <form action="UpdateCarServlet" method="post">
-            <input type="hidden" name="carID" value="<%= car.getCarID() %>">
 
-            <label>Model:</label>
-            <input type="text" name="model" value="<%= car.getModel() %>" required>
+    <div class="container py-5">
+        <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-header text-center">
+                <h3>Update Car Information</h3>
+            </div>
+            <div class="card-body">
+                <form action="UpdateCarServlet" method="post">
+                    <input type="hidden" name="carID" value="<%= car.getCarID() %>">
 
-            <label>Plate Number:</label>
-            <input type="text" name="plateNumber" value="<%= car.getPlateNumber() %>" required>
+                    <div class="mb-3">
+                        <label class="form-label">Model:</label>
+                        <input type="text" name="model" class="form-control" value="<%= car.getModel() %>" required>
+                    </div>
 
-            <label>Status:</label>
-            <select name="status">
-                <option value="Available" <%= car.getStatus().equals("Available") ? "selected" : "" %>>Available</option>
-                <option value="Unavailable" <%= car.getStatus().equals("Unavailable") ? "selected" : "" %>>Unavailable</option>
-            </select>
+                    <div class="mb-3">
+                        <label class="form-label">Plate Number:</label>
+                        <input type="text" name="plateNumber" class="form-control" value="<%= car.getPlateNumber() %>" required>
+                    </div>
 
-            <button type="submit" class="btn btn-primary">Update Car</button>
-            <a href="CarSection.jsp" class="btn btn-secondary">Cancel</a>
-        </form>
+                    <div class="mb-3">
+                        <label class="form-label">Status:</label>
+                        <select name="status" class="form-select">
+                            <option value="Available" <%= car.getStatus().equals("Available") ? "selected" : "" %>>Available</option>
+                            <option value="Unavailable" <%= car.getStatus().equals("Unavailable") ? "selected" : "" %>>Unavailable</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Update Car</button>
+                        <a href="CarSection.jsp" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <%@ include file="footer.jsp" %>
+
+<%@ include file="footer.jsp" %>
+
 </body>
 </html>
