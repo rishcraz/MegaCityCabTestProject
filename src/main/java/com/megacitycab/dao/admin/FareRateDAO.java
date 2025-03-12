@@ -1,10 +1,11 @@
-package dao.admin;
+package com.megacitycab.dao.admin;
 
-import model.admin.FareRate;
-import util.DBConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.megacitycab.model.admin.FareRate;
+import com.megacitycab.util.DBConnection;
 
 public class FareRateDAO {
 

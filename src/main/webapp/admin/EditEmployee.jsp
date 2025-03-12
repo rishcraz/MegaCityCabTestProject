@@ -1,4 +1,4 @@
-<%@ page import="dao.admin.EmployeeDAO, model.admin.Employee" %>
+<%@ page import="com.megacitycab.dao.admin.EmployeeDAO,com.megacitycab.model.admin.Employee" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page session="true" %>
 <%

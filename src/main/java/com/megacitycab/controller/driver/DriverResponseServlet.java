@@ -1,9 +1,11 @@
-package controller.driver;
+package com.megacitycab.controller.driver;
 
-import dao.customer.BookingDAO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+
+import com.megacitycab.dao.customer.BookingDAO;
+
 import java.io.IOException;
 
 @WebServlet("/DriverResponseServlet")
