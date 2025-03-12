@@ -1,4 +1,4 @@
-package model;
+package com.megacitycab.model;
 
 public class User {
     private String userId; // Supports both customers & employees

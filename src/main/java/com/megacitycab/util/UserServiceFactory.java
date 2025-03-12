@@ -1,6 +1,6 @@
-package util;
+package com.megacitycab.util;
 
-import dao.UserDAO;
+import com.megacitycab.dao.UserDAO;
 
 public class UserServiceFactory {
     private static UserDAO userDAO;

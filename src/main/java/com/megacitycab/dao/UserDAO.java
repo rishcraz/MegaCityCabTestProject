@@ -1,8 +1,9 @@
-package dao;
+package com.megacitycab.dao;
 
-import model.User;
-import util.DBConnection;
 import org.mindrot.jbcrypt.BCrypt;
+
+import com.megacitycab.model.User;
+import com.megacitycab.util.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

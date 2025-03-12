@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.List"%>
-<%@ page import="model.User"%>
-<%@ page import="dao.UserDAO"%>
+<%@ page import="com.megacitycab.model.User"%>
+<%@ page import="com.megacitycab.dao.UserDAO"%>
 <%@ page session="true" %>
 <%
     String adminId = (String) session.getAttribute("adminId");

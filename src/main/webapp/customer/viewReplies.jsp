@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>   
-<%@ page import="dao.customer.InquiryDAO" %>
-<%@ page import="model.customer.Inquiry" %>
+<%@ page import="com.megacitycab.dao.customer.InquiryDAO" %>
+<%@ page import="com.megacitycab.model.customer.Inquiry" %>
 <%@ page import="java.util.List" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 

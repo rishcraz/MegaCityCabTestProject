@@ -1,4 +1,4 @@
-package model.customer;
+package com.megacitycab.model.customer;
 
 import java.sql.Timestamp;
 
